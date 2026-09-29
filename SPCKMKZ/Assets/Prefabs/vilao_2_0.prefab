@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4723656127648998760}
   - component: {fileID: 4423262567997408961}
   - component: {fileID: 2866643527613891396}
+  - component: {fileID: -3394971790362762749}
+  - component: {fileID: -6987192950488284535}
   m_Layer: 0
   m_Name: vilao_2_0
   m_TagString: Untagged
@@ -107,3 +109,36 @@ MonoBehaviour:
   life: 5
   shoot_damage: 5
   velocity: 1
+--- !u!114 &-3394971790362762749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230547331629299309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30498d3dc4dd5e419e37b512dff0f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerInimigos
+  inimigoPrefab: {fileID: 0}
+  gerenciadorFases: {fileID: 0}
+  xMin: -1.525
+  xMax: 1.525
+  yInicial: 1.4
+--- !u!114 &-6987192950488284535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230547331629299309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc4fc7722f7d9d44bb286a79b28d705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  vida: 1
+  pontos: 10
+  limiteY: -6
+  gerenciadorFases: {fileID: 0}

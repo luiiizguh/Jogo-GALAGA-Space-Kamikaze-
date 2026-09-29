@@ -1,86 +1,122 @@
 using UnityEngine;
+using TMPro;
 
 // Controla as fases do jogo
 public class GerenciadorFases : MonoBehaviour
 {
-    // Fase atual do jogador
     public int faseAtual = 1;
-
-    // Quantidade de inimigos que devem aparecer na fase
     public int quantidadeInimigos;
-
-
-   // Quantidade de inimigos derrotados
-    private int inimigosDerrotados = 0;
-
-    // Tempo entre o surgimento dos inimigos
     public float tempoEntreSpawns;
 
-    // Configura os valores da fase quando o jogo começa
+    // Referência para o spawner
+    public SpawnerInimigos spawner;
+
+    // Textos do HUD (arraste do Canvas)
+    public TMP_Text textoFase;
+    public TMP_Text textoPontos;
+    public TMP_Text textoRestantes;
+
+    
+
+    // Pontuação total do jogador
+    private int pontos = 0;
+
+    private int inimigosDerrotados = 0;
+    private int inimigosFinalizados = 0;
+
     void Start()
     {
-        ConfigurarFase();
+        IniciarFase();
     }
 
-    public void InimigoDerrotado()
+    void IniciarFase()
+    {
+        inimigosDerrotados = 0;
+        inimigosFinalizados = 0;
+
+        bool temSpawn = ConfigurarFase();
+
+        if (temSpawn)
+        {
+            spawner.IniciarFase();
+        }
+
+        AtualizarHUD();
+    }
+
+    // Chamado pelo Enemy quando o jogador o mata
+    public void InimigoDerrotado(int pontosGanhos)
     {
         inimigosDerrotados++;
+        pontos += pontosGanhos;
 
-        Debug.Log("Inimigos derrotados: " + inimigosDerrotados);
+        InimigoFinalizado();
+    }
 
-        // Verifica se todos foram derrotados
-        if (inimigosDerrotados >= quantidadeInimigos)
+    // Chamado pelo Enemy quando ele passa da tela
+    public void InimigoEscapou()
+    {
+        InimigoFinalizado();
+    }
+
+    void InimigoFinalizado()
+    {
+        inimigosFinalizados++;
+        AtualizarHUD();
+
+        if (inimigosFinalizados >= quantidadeInimigos)
         {
             Debug.Log("FASE COMPLETA!");
-
             ProximaFase();
         }
     }
 
-    // Define as regras de cada fase
-    void ConfigurarFase()
+    void AtualizarHUD()
     {
-        // FASE 1
+        if (textoFase != null)
+            textoFase.text = "FASE " + faseAtual;
+
+        if (textoPontos != null)
+            textoPontos.text = "PONTOS: " + pontos;
+
+        if (textoRestantes != null)
+        {
+            int restantes = quantidadeInimigos - inimigosFinalizados;
+            textoRestantes.text = "INIMIGOS: " + restantes;
+        }
+    }
+
+    // Retorna true se a fase tem inimigos normais para spawnar
+    bool ConfigurarFase()
+    {
         if (faseAtual == 1)
         {
             quantidadeInimigos = 100;
             tempoEntreSpawns = 1f;
-
-            Debug.Log("FASE 1 INICIADA");
+            return true;
         }
-
-        // FASE 2
         else if (faseAtual == 2)
         {
             quantidadeInimigos = 200;
             tempoEntreSpawns = 0.8f;
-
-            Debug.Log("FASE 2 INICIADA");
+            return true;
         }
-
-        // FASE 3
         else if (faseAtual == 3)
         {
             quantidadeInimigos = 300;
             tempoEntreSpawns = 0.7f;
-
-            Debug.Log("FASE 3 INICIADA");
+            return true;
         }
 
-        // FASE FINAL
-        else
-        {
-            Debug.Log("FASE FINAL - BOSS");
-        }
+        // Fase do boss
+        quantidadeInimigos = 0;
+        if (textoRestantes != null) textoRestantes.text = "BOSS!";
+        return false;
     }
 
-    // Chamada quando o jogador completa uma fase
     public void ProximaFase()
     {
-        // Avança para a próxima fase
         faseAtual++;
-
-        // Atualiza as configurações da nova fase
-        ConfigurarFase();
+        IniciarFase();
     }
 }

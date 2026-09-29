@@ -13,14 +13,16 @@ public class SpawnerInimigos : MonoBehaviour
     // Quantidade de inimigos já criados
     private int inimigosCriados = 0;
 
-    // Posição mínima e máxima onde os inimigos podem aparecer
-    public float xMin = -8f;
-    public float xMax = 8f;
+    // Área onde os inimigos nascem (fixa no código, o Inspector não altera)
+    private const float X_MIN = -1.525f;
+    private const float X_MAX = 1.525f;
+    private const float Y_INICIAL = 1.400f;
 
-    void Start()
+    // Chamado pelo GerenciadorFases no começo de cada fase
+    public void IniciarFase()
     {
-        Debug.Log("Spawner iniciado");
-        // Inicia a criação dos inimigos
+        StopAllCoroutines();
+        inimigosCriados = 0;
         StartCoroutine(CriarInimigos());
     }
 
@@ -29,24 +31,43 @@ public class SpawnerInimigos : MonoBehaviour
         // Enquanto ainda faltar criar inimigos
         while (inimigosCriados < gerenciadorFases.quantidadeInimigos)
         {
-            Debug.Log("Criando inimigo");
             // Escolhe uma posição aleatória no eixo X
-            float posicaoX = Random.Range(-1.525f, 1.525f);
+            float posicaoX = Random.Range(X_MIN, X_MAX);
 
             // Cria o inimigo
-            Instantiate(
+            GameObject novo = Instantiate(
                 inimigoPrefab,
-                new Vector3(posicaoX, 1.400f, 0f),
+                new Vector3(posicaoX, Y_INICIAL, 0f),
                 Quaternion.identity
             );
+
+            // Passa a referência do gerenciador para o inimigo
+            Enemy inimigo = novo.GetComponentInChildren<Enemy>();
+
+            if (inimigo != null)
+            {
+                inimigo.gerenciadorFases = gerenciadorFases;
+            }
+            else
+            {
+                Debug.LogError("O prefab do inimigo não tem o script Enemy!", novo);
+            }
 
             // Soma 1 ao contador
             inimigosCriados++;
 
             // Espera o tempo definido pela fase
-            yield return new WaitForSeconds(
-                gerenciadorFases.tempoEntreSpawns
-            );
+            yield return new WaitForSeconds(gerenciadorFases.tempoEntreSpawns);
         }
+    }
+
+    // Mostra a área de spawn (linha vermelha) na aba Scene
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(
+            new Vector3(X_MIN, Y_INICIAL, 0f),
+            new Vector3(X_MAX, Y_INICIAL, 0f)
+        );
     }
 }
