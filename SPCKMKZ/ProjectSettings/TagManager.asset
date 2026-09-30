@@ -9,6 +9,7 @@ TagManager:
   - Jogador
   - ProjetilInimigo
   - Projetil
+  - Inimigo
   layers:
   - Default
   - TransparentFX

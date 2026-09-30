@@ -49,6 +49,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MovimentaçãoVilaoForte.cs" />
     <Compile Include="Assets\Scripts\InimigoNamikaze.cs" />
     <Compile Include="Assets\Scripts\ParteInimigo.cs" />
     <Compile Include="Assets\Scripts\InimigoEscudo.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\VidaJogador.cs" />
     <Compile Include="Assets\Scripts\Movimentacao.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Movimento_planeta.cs" />
     <Compile Include="Assets\Scripts\inimigos_fases.cs" />
     <Compile Include="Assets\Scripts\Nave_Script.cs" />
@@ -88,6 +90,12 @@
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+=======
+    <Compile Include="Assets\Scripts\TeiaProjetil.cs" />
+    <Compile Include="Assets\Scripts\EscurdoOrbita.cs" />
+    <Compile Include="Assets\Scripts\explosao.cs" />
+    <Compile Include="Assets\Scripts\ProjetilInimigo.cs" />
+>>>>>>> origin/Valle_Branch
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
