@@ -28,6 +28,8 @@ public class InimigoNamikaze : MonoBehaviour
     public float tempoSuavizacaoGiro = 0.35f;
     [Tooltip("Quando o ângulo até o jogador for menor que isso, ele trava a direção e mergulha.")]
     public float anguloParaMergulhar = 3f;
+    [Tooltip("Tempo máximo (segundos) mirando. Mesmo sem alinhar perfeitamente, ele trava a direção e mergulha depois disso — evita ficar girando ao redor do alvo pra sempre.")]
+    public float tempoMaximoMirando = 1f;
 
     [Header("Mergulho (depois de mirar)")]
     public float velocidadeMaxima = 9f;
@@ -43,6 +45,10 @@ public class InimigoNamikaze : MonoBehaviour
     [Tooltip("Tag usada pelas naves. Colidir com uma nave também destrói este inimigo (ele se sacrifica no impacto).")]
     public string tagNave = "Nave";
 
+    [Header("Explosão")]
+    [Tooltip("Prefab da animação de explosão, tocada no lugar dele quando encosta na nave.")]
+    public GameObject prefabExplosao;
+
     private Estado estado = Estado.Entrando;
     private float velocidadeAtual;
     private float tempoDecorrido;
@@ -52,6 +58,7 @@ public class InimigoNamikaze : MonoBehaviour
     private float anguloMovimento;
     private float anguloVelocidadeRef;
     private Vector2 direcaoMergulho;
+    private float tempoMirandoAcumulado;
 
     void Start()
     {
@@ -104,11 +111,16 @@ public class InimigoNamikaze : MonoBehaviour
         transform.position += (Vector3)direcao * velocidadeAtual * Time.deltaTime;
 
         if (tempoDecorrido >= tempoDeEntrada)
+        {
+            tempoMirandoAcumulado = 0f;
             estado = Estado.Mirando;
+        }
     }
 
     private void AtualizarMira()
     {
+        tempoMirandoAcumulado += Time.deltaTime;
+
         Vector2 direcaoAtual = DirecaoDoAngulo(anguloMovimento);
         transform.position += (Vector3)direcaoAtual * velocidadeInicial * Time.deltaTime;
 
@@ -127,7 +139,10 @@ public class InimigoNamikaze : MonoBehaviour
         AtualizarRotacaoVisual();
 
         float diferenca = Mathf.Abs(Mathf.DeltaAngle(anguloMovimento, anguloAlvo));
-        if (diferenca <= anguloParaMergulhar)
+        bool alinhou = diferenca <= anguloParaMergulhar;
+        bool estourouTempo = tempoMirandoAcumulado >= tempoMaximoMirando;
+
+        if (alinhou || estourouTempo)
         {
             direcaoMergulho = DirecaoDoAngulo(anguloMovimento);
             estado = Estado.Mergulhando;
@@ -142,6 +157,8 @@ public class InimigoNamikaze : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log($"Namikaze colidiu com: '{other.gameObject.name}' (tag: '{other.tag}')");
+
         if (other.CompareTag(tagProjetil))
         {
             Destroy(other.gameObject); // remove o projétil também
@@ -149,8 +166,11 @@ public class InimigoNamikaze : MonoBehaviour
         }
         else if (other.CompareTag(tagNave))
         {
+            if (prefabExplosao != null)
+                Instantiate(prefabExplosao, transform.position, transform.rotation);
+
             // A nave não é destruída aqui — isso fica a cargo do script dela mesma
-            // (ex: perder vida). Este inimigo só desaparece ao colidir.
+            // (ex: perder vida). Este inimigo só explode e desaparece.
             Destroy(gameObject);
         }
     }

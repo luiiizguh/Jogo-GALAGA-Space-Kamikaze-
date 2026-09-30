@@ -8,6 +8,7 @@ TagManager:
   - Nave
   - Jogador
   - ProjetilInimigo
+  - Projetil
   layers:
   - Default
   - TransparentFX

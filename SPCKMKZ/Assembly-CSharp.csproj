@@ -48,13 +48,14 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\InimigoEscudo.cs" />
-    <Compile Include="Assets\InimigoNamikaze.cs" />
-    <Compile Include="Assets\ParteInimigo.cs" />
-    <Compile Include="Assets\ProjetilInimigo.cs" />
-    <Compile Include="Assets\InimigoAtirador.cs" />
-    <Compile Include="Assets\Movimentacao.cs" />
-    <Compile Include="Assets\EscurdoOrbita.cs" />
+    <Compile Include="Assets\Scripts\InimigoNamikaze.cs" />
+    <Compile Include="Assets\Scripts\ParteInimigo.cs" />
+    <Compile Include="Assets\Scripts\InimigoEscudo.cs" />
+    <Compile Include="Assets\Scripts\InimigoAtirador.cs" />
+    <Compile Include="Assets\Scripts\Movimentacao.cs" />
+    <Compile Include="Assets\Scripts\EscurdoOrbita.cs" />
+    <Compile Include="Assets\Scripts\ProjetilInimigo.cs" />
+    <Compile Include="Assets\Prefabs\explosao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

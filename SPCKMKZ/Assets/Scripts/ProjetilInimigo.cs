@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public class ProjetilInimigo : MonoBehaviour
 {
+    [Tooltip("Velocidade com que o projétil desce a tela. É definida automaticamente pelo InimigoAtirador ao atirar.")]
+    public float velocidade = 5f;
+
     [Tooltip("Tempo de vida máximo, mesmo que nunca saia da tela.")]
     public float tempoDeVida = 5f;
 
@@ -21,6 +24,8 @@ public class ProjetilInimigo : MonoBehaviour
 
     void Update()
     {
+        transform.position += Vector3.down * velocidade * Time.deltaTime;
+
         if (transform.position.y < limiteInferior)
         {
             Destroy(gameObject);
