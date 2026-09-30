@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9fc268151644d104abd8c7072b169007
+guid: 070d939544c05f44aa41631ccde53edd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7046683105818108997
-    second: fase_2_0
+      213: 8042098809953804199
+    second: fase2incrivel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fase_2_0
+      name: fase2incrivel_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 320
-        height: 240
+        x: 175
+        y: 46
+        width: 145
+        height: 156
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bbb17f8dc07253e90800000000000000
-      internalID: -7046683105818108997
+      spriteID: 7af53ef32464b9f60800000000000000
+      internalID: 8042098809953804199
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fase_2_0: -7046683105818108997
+      fase2incrivel_0: 8042098809953804199
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
