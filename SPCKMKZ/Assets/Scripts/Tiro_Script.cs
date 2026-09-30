@@ -14,5 +14,9 @@ public class Tiro_Script : MonoBehaviour
     void Update()
     {
         transform.Translate(new Vector2(0, velocity) * Time.deltaTime);
+        if (transform.position.y > 1.5){
+
+            Destroy(gameObject);
+        }
     }
 }

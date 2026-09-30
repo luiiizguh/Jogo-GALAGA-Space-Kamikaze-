@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7223e5c8e97428e4d9f585a11b28e7a4
+guid: 438b52696c17ba242a95bd85b37b54f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5795304820711625929
-    second: NaveNormal_0
+      213: 7463929489850879771
+    second: NaveNormal-sheet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,17 +119,61 @@ TextureImporter:
         x: 0
         y: 0
         width: 20
-        height: 16
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9c410a3970f0d6050800000000000000
-      internalID: 5795304820711625929
+      spriteID: 53f370417ffac0740b102c56693ca3f2
+      internalID: -1428281040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NaveNormal_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b88510df445b3164989d2f419240a9cb
+      internalID: -2037933657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NaveNormal_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28043b06c0ae83c48a67faaa90ced921
+      internalID: 1520989367
       vertices: []
       indices: 
       edges: []
@@ -138,7 +182,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4ce125df6a4df054d94e01c9f84ae12c
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +190,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":20.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      NaveNormal_0: 5795304820711625929
+      NaveNormal_0: -1428281040
+      NaveNormal_1: -2037933657
+      NaveNormal_2: 1520989367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
