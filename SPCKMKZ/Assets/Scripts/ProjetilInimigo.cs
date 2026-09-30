@@ -14,7 +14,6 @@ public class ProjetilInimigo : MonoBehaviour
     [Tooltip("Tempo de vida máximo, mesmo que nunca saia da tela.")]
     public float tempoDeVida = 5f;
 
-    public float velocidade = 5f;
 
     [Tooltip("Posição Y considerada 'fora da tela' por baixo.")]
     public float limiteInferior = -6f;

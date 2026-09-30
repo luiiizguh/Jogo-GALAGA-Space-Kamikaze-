@@ -5,7 +5,7 @@ public class PlanetaRolando : MonoBehaviour
     public float velocidade = 0.05f;
 
     // Altura acima da posição inicial onde o planeta reaparece
-    public float distanciaReinicio = 6f;
+    public float distanciaReinicio = 2.5f;
 
     private float yInicial;
 

@@ -16,7 +16,7 @@ public class InimigoNamikaze : MonoBehaviour
     [Header("Alvo")]
     [Tooltip("Se ficar vazio, o script procura automaticamente um objeto com a tag abaixo.")]
     public Transform jogador;
-    public string tagJogador = "Jogador";
+    public string tagJogador = "Nave";
 
     [Header("Entrada (fase lenta)")]
     public float velocidadeInicial = 1.5f;
