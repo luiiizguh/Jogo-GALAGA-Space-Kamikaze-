@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Tiro
+  - Nave
+  - Inimigo
   layers:
   - Default
   - TransparentFX

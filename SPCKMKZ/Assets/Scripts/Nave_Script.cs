@@ -12,11 +12,14 @@ public class Nave_Script : MonoBehaviour
     private int current_spawn = 0;
     public List<GameObject> spawn_tiro;
     public GameObject spawn_efx;
+    public bool Intercalate = false;
+    private int cur_spawn = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
+    
     }
 
     // Update is called once per frame
@@ -46,13 +49,25 @@ public class Nave_Script : MonoBehaviour
     void Shoot(){
 
         if (timer <= 0){
+            
+            if (Intercalate){
 
-            foreach(var spawn in spawn_tiro){
-
+                GameObject spawn = spawn_tiro[cur_spawn];
                 Instantiate(shoot_prefab, spawn.transform.position, spawn.transform.rotation);
                 Instantiate(spawn_efx, spawn.transform.position, spawn.transform.rotation, spawn.transform);
+                cur_spawn++;
+                if (cur_spawn >= spawn_tiro.Count){
+
+                    cur_spawn = 0;
+                }
+            }else{
+
+                foreach(var spawn in spawn_tiro){
+
+                    Instantiate(shoot_prefab, spawn.transform.position, spawn.transform.rotation);
+                    Instantiate(spawn_efx, spawn.transform.position, spawn.transform.rotation, spawn.transform);
+                }
             }
-            
             timer = shoot_cooldown;
         }
     }

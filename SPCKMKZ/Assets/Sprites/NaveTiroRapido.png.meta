@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 438b52696c17ba242a95bd85b37b54f8
+guid: 796a0273aad744f4a997581b9c38cf74
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7463929489850879771
-    second: NaveNormal-sheet_0
+      213: 2218380029934821509
+    second: NaveTiroRapido_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,35 +113,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NaveNormal_0
+      name: NaveTiroRapido_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
-        height: 24
+        width: 28
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 53f370417ffac0740b102c56693ca3f2
-      internalID: -1428281040
+      spriteID: 580e51d32e449ce10800000000000000
+      internalID: 2218380029934821509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NaveNormal_1
+      name: NaveTiroRapido_1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 28
         y: 0
-        width: 20
-        height: 24
+        width: 28
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b88510df445b3164989d2f419240a9cb
-      internalID: -2037933657
+      spriteID: c02dfdbc3ff7cc147b7e4147b9b03c23
+      internalID: 1903510047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NaveNormal_2
+      name: NaveTiroRapido_2
       rect:
         serializedVersion: 2
-        x: 40
+        x: 56
         y: 0
-        width: 20
-        height: 24
+        width: 28
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28043b06c0ae83c48a67faaa90ced921
-      internalID: 1520989367
+      spriteID: 66703e8d5a245554ca8887ddd4353077
+      internalID: -40358134
       vertices: []
       indices: 
       edges: []
@@ -182,7 +182,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4ce125df6a4df054d94e01c9f84ae12c
+    spriteID: bb4b9e3a386d91144b72c4f2c17e58fd
     internalID: 0
     vertices: []
     indices: 
@@ -192,11 +192,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":20.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":28.0,"y":30.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      NaveNormal_0: -1428281040
-      NaveNormal_1: -2037933657
-      NaveNormal_2: 1520989367
+      NaveTiroRapido_0: 2218380029934821509
+      NaveTiroRapido_1: 1903510047
+      NaveTiroRapido_2: -40358134
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
