@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class InimigoLateral : MonoBehaviour
 {
+    [Header("Vida")]
+    public int vida = 5;
+
     [Header("Tiro")]
     [Tooltip("Tempo (segundos) entre um tiro e outro. Também é o valor pro qual o cooldown reseta.")]
     public float cooldownMaximo = 1.5f;
@@ -31,6 +34,12 @@ public class InimigoLateral : MonoBehaviour
 
     [Tooltip("Tempo (segundos) entre uma checagem da posição da nave e outra. Maior = reage mais devagar, menos 'roubado'.")]
     public float tempoDeReacao = 0.6f;
+
+    [Header("Colisão / Dano recebido")]
+    [Tooltip("Tag usada pelos projéteis do jogador.")]
+    public string tagProjetilJogador = "Tiro";
+    [Tooltip("Dano recebido por acerto de projétil.")]
+    public int danoPorAcerto = 1;
 
     private SpriteRenderer spriteRenderer;
     private bool jogadorEstaEsquerda;
@@ -113,4 +122,6 @@ public class InimigoLateral : MonoBehaviour
             spriteRenderer.flipX = !jogadorEstaEsquerda;
         }
     }
+
+    
 }

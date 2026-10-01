@@ -12,7 +12,7 @@ public class ParteInimigo : MonoBehaviour
     public TipoParte tipo;
 
     [Tooltip("Tag que causa dano ao encostar. Pode ser o projétil ('Projetil') ou a própria nave ('Nave').")]
-    public string tagProjetil = "Nave";
+    public string tagProjetil = "Tiro";
 
     [Tooltip("Quantidade de dano causada por colisão.")]
     public int dano = 1;
@@ -35,10 +35,7 @@ public class ParteInimigo : MonoBehaviour
         if (!other.CompareTag(tagProjetil)) return;
         if (inimigo == null) return;
 
-        if (tipo == TipoParte.Nucleo)
-            inimigo.ReceberDanoNucleo(dano);
-        else
-            inimigo.ReceberDanoEscudo(dano);
+          
 
         if (destruirObjetoColisor)
             Destroy(other.gameObject);

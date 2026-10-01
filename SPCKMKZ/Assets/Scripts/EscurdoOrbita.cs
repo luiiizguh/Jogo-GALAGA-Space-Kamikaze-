@@ -9,6 +9,7 @@ public class EscudoOrbita : MonoBehaviour
     [Header("Configuração da Órbita")]
     [Tooltip("Transform ao redor do qual o escudo vai girar. Se vazio, usa o pai automaticamente.")]
     public Transform centro;
+    public int vida = 5;
 
     [Tooltip("Distância do escudo até o centro (raio da órbita).")]
     public float raio = 1f;
@@ -20,6 +21,8 @@ public class EscudoOrbita : MonoBehaviour
 
     [Tooltip("Se marcado, o escudo também gira sobre si mesmo enquanto orbita (efeito visual extra).")]
     public bool girarSobreSiMesmo = true;
+
+    public string tagProjetil = "Tiro";
 
     private float anguloAtual;
 
@@ -54,5 +57,15 @@ public class EscudoOrbita : MonoBehaviour
 
         if (girarSobreSiMesmo)
             transform.rotation = Quaternion.Euler(0f, 0f, anguloAtual);
+    }
+
+
+    public void ReceberDano(int dano)
+    {
+        vida -= dano;
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
