@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Nucleo
+  - Tiro
   - Nave
-  - Jogador
-  - ProjetilInimigo
-  - Projetil
   - Inimigo
   layers:
   - Default
