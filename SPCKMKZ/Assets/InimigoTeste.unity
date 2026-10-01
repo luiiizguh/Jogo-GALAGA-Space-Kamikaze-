@@ -423,6 +423,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Inimigo
       objectReference: {fileID: 0}
+    - target: {fileID: 5221416274743607841, guid: 85ea4f4fd0b9ba843b8d651d3ed0c918, type: 3}
+      propertyPath: tagJogador
+      value: Nave
+      objectReference: {fileID: 0}
     - target: {fileID: 6189745754597953177, guid: 85ea4f4fd0b9ba843b8d651d3ed0c918, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.97057

@@ -48,18 +48,4 @@ public class InimigoEscudo : MonoBehaviour
         }
     }
 
-    public void ReceberDanoNucleo(int dano)
-    {
-        // Só recebe dano depois que o escudo cair
-        if (escudoAtivo) return;
-
-        vidaNucleo -= dano;
-        if (vidaNucleo <= 0)
-        {
-            if (efeitoDestruirNucleo != null)
-                Instantiate(efeitoDestruirNucleo, transform.position, Quaternion.identity);
-
-            Destroy(gameObject);
-        }
-    }
 }

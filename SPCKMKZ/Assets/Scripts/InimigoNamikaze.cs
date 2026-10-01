@@ -159,19 +159,15 @@ public class InimigoNamikaze : MonoBehaviour
     {
         Debug.Log($"Namikaze colidiu com: '{other.gameObject.name}' (tag: '{other.tag}')");
 
-        if (other.CompareTag(tagProjetil))
+        if (other.CompareTag(tagNave))
         {
-            Destroy(other.gameObject); // remove o projétil também
-            Destroy(gameObject);
-        }
-        else if (other.CompareTag(tagNave))
-        {
-            if (prefabExplosao != null)
+            if (prefabExplosao != null){
                 Instantiate(prefabExplosao, transform.position, transform.rotation);
-
+            }
             // A nave não é destruída aqui — isso fica a cargo do script dela mesma
             // (ex: perder vida). Este inimigo só explode e desaparece.
             Destroy(gameObject);
         }
     }
+
 }

@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\Movimentacao.cs" />
     <Compile Include="Assets\Scripts\TeiaProjetil.cs" />
     <Compile Include="Assets\Scripts\EscurdoOrbita.cs" />
+    <Compile Include="Assets\Scripts\VidaInimigos.cs" />
     <Compile Include="Assets\Scripts\explosao.cs" />
     <Compile Include="Assets\Scripts\ProjetilInimigo.cs" />
   </ItemGroup>

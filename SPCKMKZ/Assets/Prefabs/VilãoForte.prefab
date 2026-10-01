@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 538231789075575051}
   - component: {fileID: 8965520379696314039}
   - component: {fileID: 8402425592543980159}
+  - component: {fileID: 4473860232020511851}
   m_Layer: 0
   m_Name: "Vil\xE3oForte"
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +130,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.1610181
 --- !u!114 &8402425592543980159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +152,19 @@ MonoBehaviour:
   intervaloTiro: 0.6
   tagProjetilJogador: Projetil
   danoPorAcerto: 1
+--- !u!114 &4473860232020511851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491070001725888063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1e655ffb512b0408745a57ae45fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VidaInimigos
+  vida: 3
 --- !u!1 &6097478610046434071
 GameObject:
   m_ObjectHideFlags: 0

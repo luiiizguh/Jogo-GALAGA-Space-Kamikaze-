@@ -28,7 +28,7 @@ public class VilaoZigZag : MonoBehaviour
     public float intervaloTiro = 2f;
 
     [Header("Colisão / Dano recebido")]
-    public string tagProjetilJogador = "Projetil";
+    public string tagProjetilJogador = "Tiro";
     public int danoPorAcerto = 1;
 
     private float xInicial;
@@ -80,21 +80,5 @@ public class VilaoZigZag : MonoBehaviour
         Instantiate(prefabTeia, posicaoDisparo, Quaternion.identity);
     }
 
-    public void ReceberDano(int dano)
-    {
-        vida -= dano;
-        if (vida <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag(tagProjetilJogador))
-        {
-            ReceberDano(danoPorAcerto);
-            Destroy(other.gameObject);
-        }
-    }
+   
 }

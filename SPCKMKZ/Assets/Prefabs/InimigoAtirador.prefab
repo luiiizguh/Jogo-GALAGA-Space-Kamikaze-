@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 6189745754597953177}
   - component: {fileID: 4923713915798508278}
   - component: {fileID: 5221416274743607841}
+  - component: {fileID: 4937806900182352376}
+  - component: {fileID: 3104422410018579452}
   m_Layer: 0
   m_Name: InimigoAtirador
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfe735a4e6263940a966271d9d18d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoAtirador
+  vida: 5
   cooldownMaximo: 1.5
   prefabTiro: {fileID: 7086046694261910754, guid: c411459b9dee03f46a68ebfcbd030fca, type: 3}
   spawn: {fileID: 6750394907364586855}
@@ -91,6 +94,48 @@ MonoBehaviour:
   tagJogador: Jogador
   velocidadeMovimento: 0.5
   tempoDeReacao: 0.6
+  tagProjetilJogador: Tiro
+  danoPorAcerto: 1
+--- !u!114 &4937806900182352376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407948700167241322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1e655ffb512b0408745a57ae45fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VidaInimigos
+  vida: 3
+--- !u!50 &3104422410018579452
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407948700167241322}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6568302451082953071
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfe735a4e6263940a966271d9d18d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoAtirador
+  vida: 5
   cooldownMaximo: 1.5
   prefabTiro: {fileID: 0}
   spawn: {fileID: 0}
@@ -234,3 +280,5 @@ MonoBehaviour:
   tagJogador: Jogador
   velocidadeMovimento: 2
   tempoDeReacao: 0.6
+  tagProjetilJogador: Tiro
+  danoPorAcerto: 1
