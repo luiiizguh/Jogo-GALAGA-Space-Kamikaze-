@@ -57,10 +57,10 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\VidaJogador.cs" />
     <Compile Include="Assets\Scripts\Movimentacao.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Movimento_planeta.cs" />
     <Compile Include="Assets\Scripts\inimigos_fases.cs" />
     <Compile Include="Assets\Scripts\Nave_Script.cs" />
+    <Compile Include="Assets\Scripts\TeiaProjetil.cs" />
     <Compile Include="Assets\Scripts\EscurdoOrbita.cs" />
     <Compile Include="Assets\Scripts\Movimento_estrela.cs" />
     <Compile Include="Assets\Scripts\gerenciador_de_fases.cs" />
@@ -90,12 +90,6 @@
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-=======
-    <Compile Include="Assets\Scripts\TeiaProjetil.cs" />
-    <Compile Include="Assets\Scripts\EscurdoOrbita.cs" />
-    <Compile Include="Assets\Scripts\explosao.cs" />
-    <Compile Include="Assets\Scripts\ProjetilInimigo.cs" />
->>>>>>> origin/Valle_Branch
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
