@@ -27,7 +27,7 @@ public class Tiro_Script : MonoBehaviour
         if (col.gameObject.CompareTag("Inimigo")){
 
             Vector2 col_point = col.ClosestPoint(transform.position);
-            Enemie_Test_Script inimigo = col.GetComponent<Enemie_Test_Script>();
+            VidaInimigos inimigo = col.GetComponent<VidaInimigos>();
             Instantiate(destroy_prefab, col_point, Quaternion.identity);
             inimigo.ReceberDano(damage);
             Destroy(gameObject);

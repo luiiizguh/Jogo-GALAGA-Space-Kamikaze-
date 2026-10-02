@@ -42,11 +42,11 @@ public class SpawnerInimigos : MonoBehaviour
             );
 
             // Passa a referência do gerenciador para o inimigo
-            Enemy inimigo = novo.GetComponentInChildren<Enemy>();
+            VidaInimigos inimigo = novo.GetComponentInChildren<VidaInimigos>();
 
             if (inimigo != null)
             {
-                inimigo.gerenciadorFases = gerenciadorFases;
+                inimigo.gerenciador = gerenciadorFases;
             }
             else
             {
