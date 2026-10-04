@@ -4,9 +4,6 @@ using UnityEngine;
 // Responsável por criar os inimigos da fase
 public class SpawnerInimigos : MonoBehaviour
 {
-    // Prefab do inimigo
-    public GameObject inimigoPrefab;
-
     // Referência para o Gerenciador de Fases
     public GerenciadorFases gerenciadorFases;
 
@@ -28,18 +25,33 @@ public class SpawnerInimigos : MonoBehaviour
 
     IEnumerator CriarInimigos()
     {
+        if (gerenciadorFases == null)
+        {
+            Debug.LogError("O Spawner não tem o GerenciadorFases atribuído!", this);
+            yield break;
+        }
+
+        if (gerenciadorFases.inimigoAtual == null)
+        {
+            Debug.LogError("A fase atual não tem 'Inimigo Prefab' na lista do GerenciadorFases!", gerenciadorFases);
+            yield break;
+        }
+
         // Enquanto ainda faltar criar inimigos
         while (inimigosCriados < gerenciadorFases.quantidadeInimigos)
         {
             // Escolhe uma posição aleatória no eixo X
             float posicaoX = Random.Range(X_MIN, X_MAX);
 
-            // Cria o inimigo
+            // Cria o inimigo da fase atual
             GameObject novo = Instantiate(
-                inimigoPrefab,
+                gerenciadorFases.inimigoAtual,
                 new Vector3(posicaoX, Y_INICIAL, 0f),
                 Quaternion.identity
             );
+
+            // Avisa o gerenciador que um inimigo nasceu
+            gerenciadorFases.RegistrarInimigo(novo);
 
             // Passa a referência do gerenciador para o inimigo
             VidaInimigos inimigo = novo.GetComponentInChildren<VidaInimigos>();
@@ -50,7 +62,7 @@ public class SpawnerInimigos : MonoBehaviour
             }
             else
             {
-                Debug.LogError("O prefab do inimigo não tem o script Enemy!", novo);
+                Debug.LogError("O prefab do inimigo não tem o script VidaInimigos!", novo);
             }
 
             // Soma 1 ao contador
