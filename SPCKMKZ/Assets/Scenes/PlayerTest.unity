@@ -614,6 +614,50 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &735115310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735115312}
+  - component: {fileID: 735115311}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &735115311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735115310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bea4ed720ebbb4d8e2555743e096e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GerenciadorFases
+--- !u!4 &735115312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735115310}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1118, y: 0.05948, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1109172622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,6 +1232,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1414962704697246228, guid: 8374f3cfb0144b6498a3eab00279b558, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 735115311}
     - target: {fileID: 7232511317249797829, guid: 8374f3cfb0144b6498a3eab00279b558, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.731
@@ -1289,6 +1337,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6553116215156318612, guid: 61f114c222ab6cf44b7330a805d66894, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 735115311}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1346,6 +1398,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7021506904685101606, guid: c743a26939b0392478a4add16c23ad5a, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 735115311}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1363,6 +1419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NaveRapida
       objectReference: {fileID: 0}
+    - target: {fileID: 7130450340898192668, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 735115311}
     - target: {fileID: 8167448737311701034, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.11
@@ -1422,3 +1482,4 @@ SceneRoots:
   - {fileID: 1398621581}
   - {fileID: 2093086849}
   - {fileID: 530594736}
+  - {fileID: 735115312}
