@@ -982,14 +982,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GerenciadorFases
   fases:
   - nome: Inimigo escudo
-    inimigoPrefab: {fileID: 8612245046610079549, guid: d9799648634a85e49900450e9e4599b5, type: 3}
-    quantidadeInimigos: 10
+    inimigoPrefab: {fileID: 2071358471842240051, guid: 7304667470a1a0f4381761faaf187bb9, type: 3}
+    quantidadeInimigos: 200
     tempoEntreSpawns: 1
     objetoDaFase: {fileID: 1830903365}
     musica: {fileID: 8300000, guid: 53c72c2d91a44604382bc01e955a829c, type: 3}
   - nome: inimigo
     inimigoPrefab: {fileID: 8612245046610079549, guid: d9799648634a85e49900450e9e4599b5, type: 3}
-    quantidadeInimigos: 10
+    quantidadeInimigos: 300
     tempoEntreSpawns: 1
     objetoDaFase: {fileID: 508615368}
     musica: {fileID: 8300000, guid: 53c72c2d91a44604382bc01e955a829c, type: 3}
@@ -1046,7 +1046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2b1f1570fa3d848a33ea99c12bd6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TesteGameOver
-  painelGameOver: {fileID: 1884995137}
 --- !u!1 &1094988953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,10 +1206,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.19075145
-    y: 0.0890411
-    width: 0.61657035
-    height: 0.8219178
+    x: 0.23205341
+    y: 0.14243323
+    width: 0.5342237
+    height: 0.7121662
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

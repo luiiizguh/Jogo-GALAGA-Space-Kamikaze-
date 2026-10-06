@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParteInimigo
   tipo: 0
-  tagProjetil: Projetil
+  tagProjetil: Tiro
   dano: 1
   destruirObjetoColisor: 0
 --- !u!114 &2726484463609009136
@@ -297,14 +297,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5506097004245480658}
-  - component: {fileID: 7865771577413400291}
   - component: {fileID: 3805497234752993213}
   - component: {fileID: 4359814869376267291}
   - component: {fileID: 2556173815487736159}
   - component: {fileID: 8193565878037695400}
+  - component: {fileID: 6674398778432199865}
   m_Layer: 0
   m_Name: Escudo
-  m_TagString: Tiro
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,42 +325,6 @@ Transform:
   - {fileID: 2357966509057148332}
   m_Father: {fileID: 3446473718635248857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7865771577413400291
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8341612953248442780}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!114 &3805497234752993213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +402,43 @@ MonoBehaviour:
   vida: 500
   pontos: 10
   gerenciador: {fileID: 0}
+--- !u!70 &6674398778432199865
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341612953248442780}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.1726455, y: 0.027030498}
+  m_Size: {x: 0.1034061, y: 0.32410437}
+  m_Direction: 0
 --- !u!1 &8474163965799810347
 GameObject:
   m_ObjectHideFlags: 0
