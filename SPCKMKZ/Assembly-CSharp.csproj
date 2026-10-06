@@ -59,7 +59,6 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\VidaJogador.cs" />
     <Compile Include="Assets\Scripts\Movimentacao.cs" />
-    <Compile Include="Assets\Scripts\teste.cs" />
     <Compile Include="Assets\Scripts\CometaRolando.cs" />
     <Compile Include="Assets\Scripts\Nave_Script.cs" />
     <Compile Include="Assets\Scripts\TeiaProjetil.cs" />
@@ -67,7 +66,6 @@
     <Compile Include="Assets\Scripts\Shot_Destroy_Script.cs" />
     <Compile Include="Assets\Scripts\Enemie_Test_Script.cs" />
     <Compile Include="Assets\Scripts\EscurdoOrbita.cs" />
-    <Compile Include="Assets\Scripts\GameOverAnimado.cs" />
     <Compile Include="Assets\Scripts\VidaInimigos.cs" />
     <Compile Include="Assets\Scripts\Movimento_estrela.cs" />
     <Compile Include="Assets\Scripts\Tiro_Spawn_Script.cs" />
