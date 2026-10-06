@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 8193565878037695400}
   m_Layer: 0
   m_Name: Escudo
-  m_TagString: Inimigo
+  m_TagString: Tiro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParteInimigo
   tipo: 1
-  tagProjetil: Projetil
+  tagProjetil: Tiro
   dano: 1
   destruirObjetoColisor: 0
 --- !u!114 &4359814869376267291

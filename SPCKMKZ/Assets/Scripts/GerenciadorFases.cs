@@ -36,6 +36,12 @@ public class GerenciadorFases : MonoBehaviour
     [Header("Referências")]
     public SpawnerInimigos spawner;
 
+    [Header("Troca do planeta")]
+    [Tooltip("Câmera usada para saber se o planeta saiu da tela. Se vazio, usa a Main Camera.")]
+    public Camera cameraJogo;
+    [Tooltip("Segurança: se o planeta antigo não sair da tela depois desse tempo (segundos), troca mesmo assim.")]
+    public float esperaMaximaPlaneta = 60f;
+
     [Header("Música")]
     [Tooltip("AudioSource que toca a música. Se ficar vazio, o gerenciador cria um sozinho.")]
     public AudioSource fonteMusica;
@@ -59,6 +65,10 @@ public class GerenciadorFases : MonoBehaviour
     private int inimigosCriados = 0;
     private int inimigosFinalizados = 0;
     private bool jogoCompleto = false;
+
+    // Planeta que está aparecendo agora e a rotina que espera ele sair
+    private GameObject objetoAtual;
+    private Coroutine rotinaTrocaObjeto;
 
     // Espera 1 frame para os outros scripts da cena se prepararem
     IEnumerator Start()
@@ -86,6 +96,9 @@ public class GerenciadorFases : MonoBehaviour
 
         if (spawner != null && spawner.gerenciadorFases == null)
             spawner.gerenciadorFases = this;
+
+        if (cameraJogo == null)
+            cameraJogo = Camera.main;
 
         // Usa o AudioSource do próprio objeto; se não existir, cria um
         if (fonteMusica == null)
@@ -174,20 +187,115 @@ public class GerenciadorFases : MonoBehaviour
         }
     }
 
-    // Liga só o objeto da fase atual. O fundo fixo não está na lista, então não é tocado.
+    // Pede para mostrar o objeto (planeta) da fase.
+    // O planeta anterior NÃO é desligado na hora: ele termina o caminho e sai da tela primeiro.
     void AtivarObjetoDaFase(GameObject objeto)
     {
-        DesligarObjetosDasFases();
-
         if (objeto == null)
         {
             Debug.LogWarning("A fase " + faseAtual + " não tem 'Objeto Da Fase' na lista.");
             return;
         }
 
-        objeto.SetActive(true);
+        // Se já havia uma troca esperando (fase passou rápido), cancela e usa a mais nova
+        if (rotinaTrocaObjeto != null)
+            StopCoroutine(rotinaTrocaObjeto);
 
-        Debug.Log("Objeto da fase ativado: " + objeto.name);
+        rotinaTrocaObjeto = StartCoroutine(TrocarObjetoDaFase(objeto));
+    }
+
+    IEnumerator TrocarObjetoDaFase(GameObject novo)
+    {
+        // Se existe um planeta antigo ainda na cena, espera ele sair da tela
+        if (objetoAtual != null && objetoAtual != novo && objetoAtual.activeInHierarchy)
+        {
+            GameObject antigo = objetoAtual;
+
+            bool jaApareceu = false;
+            float tempo = 0f;
+
+            while (antigo != null && antigo.activeInHierarchy)
+            {
+                bool fora = ForaDaTela(antigo);
+
+                if (!fora)
+                    jaApareceu = true;
+
+                // Só libera depois de ter aparecido e saído da tela
+                if (jaApareceu && fora)
+                    break;
+
+                // Segurança para nunca travar a troca
+                tempo += Time.deltaTime;
+                if (tempo >= esperaMaximaPlaneta)
+                {
+                    Debug.LogWarning("O planeta antigo não saiu da tela a tempo; trocando mesmo assim.");
+                    break;
+                }
+
+                yield return null;
+            }
+
+            if (antigo != null)
+                antigo.SetActive(false);
+        }
+
+        // Agora sim aparece o planeta da nova fase
+        objetoAtual = novo;
+        novo.SetActive(true);
+
+        rotinaTrocaObjeto = null;
+
+        Debug.Log("Objeto da fase ativado: " + novo.name);
+    }
+
+    // Retorna true se o objeto está totalmente fora da área visível da câmera
+    bool ForaDaTela(GameObject obj)
+    {
+        if (cameraJogo == null)
+            cameraJogo = Camera.main;
+
+        if (cameraJogo == null) return true;
+
+        // Imagem de UI (Canvas)
+        RectTransform rect = obj.GetComponent<RectTransform>();
+
+        if (rect != null)
+        {
+            Canvas canvas = obj.GetComponentInParent<Canvas>();
+            Vector3[] cantos = new Vector3[4];
+            rect.GetWorldCorners(cantos);
+
+            float minX = float.MaxValue, minY = float.MaxValue;
+            float maxX = float.MinValue, maxY = float.MinValue;
+
+            foreach (Vector3 c in cantos)
+            {
+                Vector3 p;
+
+                if (canvas != null && canvas.renderMode == RenderMode.ScreenSpaceOverlay)
+                    p = new Vector3(c.x / Screen.width, c.y / Screen.height, 0f);
+                else
+                    p = cameraJogo.WorldToViewportPoint(c);
+
+                minX = Mathf.Min(minX, p.x);
+                maxX = Mathf.Max(maxX, p.x);
+                minY = Mathf.Min(minY, p.y);
+                maxY = Mathf.Max(maxY, p.y);
+            }
+
+            return maxX < 0f || minX > 1f || maxY < 0f || minY > 1f;
+        }
+
+        // Sprite normal (SpriteRenderer etc.)
+        Renderer rend = obj.GetComponentInChildren<Renderer>();
+
+        if (rend == null) return true;
+
+        Vector3 pMin = cameraJogo.WorldToViewportPoint(rend.bounds.min);
+        Vector3 pMax = cameraJogo.WorldToViewportPoint(rend.bounds.max);
+
+        return pMax.x < 0f || pMin.x > 1f || pMax.y < 0f || pMin.y > 1f;
     }
 
     void TocarMusica(AudioClip musica, bool repetir)
