@@ -983,28 +983,28 @@ MonoBehaviour:
   fases:
   - nome: Inimigo escudo
     inimigoPrefab: {fileID: 2071358471842240051, guid: 7304667470a1a0f4381761faaf187bb9, type: 3}
-    quantidadeInimigos: 200
+    quantidadeInimigos: 10
     tempoEntreSpawns: 1
     objetoDaFase: {fileID: 1830903365}
     musica: {fileID: 8300000, guid: 53c72c2d91a44604382bc01e955a829c, type: 3}
   - nome: inimigo
-    inimigoPrefab: {fileID: 8612245046610079549, guid: d9799648634a85e49900450e9e4599b5, type: 3}
-    quantidadeInimigos: 300
+    inimigoPrefab: {fileID: 2491070001725888063, guid: ee145a13b18de054fad78f4b1c60c7fc, type: 3}
+    quantidadeInimigos: 15
     tempoEntreSpawns: 1
     objetoDaFase: {fileID: 508615368}
     musica: {fileID: 8300000, guid: 53c72c2d91a44604382bc01e955a829c, type: 3}
   - nome: inimigo
     inimigoPrefab: {fileID: 8612245046610079549, guid: d9799648634a85e49900450e9e4599b5, type: 3}
-    quantidadeInimigos: 10
+    quantidadeInimigos: 20
     tempoEntreSpawns: 1
     objetoDaFase: {fileID: 1329986604}
-    musica: {fileID: 8300000, guid: 57a4386488529b845ae8402dfe71e143, type: 3}
+    musica: {fileID: 8300000, guid: 53c72c2d91a44604382bc01e955a829c, type: 3}
   - nome: inimigo
-    inimigoPrefab: {fileID: 8612245046610079549, guid: d9799648634a85e49900450e9e4599b5, type: 3}
-    quantidadeInimigos: 10
+    inimigoPrefab: {fileID: 4407948700167241322, guid: 85ea4f4fd0b9ba843b8d651d3ed0c918, type: 3}
+    quantidadeInimigos: 30
     tempoEntreSpawns: 1
     objetoDaFase: {fileID: 665407835}
-    musica: {fileID: 8300000, guid: a76798770c43f1347a1ee1bde89c4627, type: 3}
+    musica: {fileID: 8300000, guid: 53c72c2d91a44604382bc01e955a829c, type: 3}
   faseAtual: 1
   quantidadeInimigos: 3
   tempoEntreSpawns: 1
