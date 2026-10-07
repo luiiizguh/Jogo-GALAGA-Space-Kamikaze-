@@ -80,13 +80,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Nave_Script
   life: 5
   shoot_damage: 5
-  shoot_cooldown: 120
+  shoot_cooldown: 0.2
   velocity: 1.5
   shoot_prefab: {fileID: 6491981245840268139, guid: e3bc6fb9a37f40c499551a7eb4075569, type: 3}
   spawn_tiro:
   - {fileID: 120101831084702107}
   spawn_efx: {fileID: 7221585585806007691, guid: 97b48d0b4d629f14887c26d469b6df79, type: 3}
   Intercalate: 0
+  sprite: {fileID: 3899800570704566541}
+  gameManager: {fileID: 0}
 --- !u!58 &4510797109599612440
 CircleCollider2D:
   m_ObjectHideFlags: 0

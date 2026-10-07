@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0e25fb76048cde0499895488e34b9c1c
+guid: f384b69487504664a82638a10dbd3ec7
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - DePixel
+  - Pixelta
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
