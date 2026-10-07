@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: JOGAR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 57e8d820abaee2640a44a56d0477e150, type: 2}
+  m_sharedMaterial: {fileID: 5429570163943431245, guid: 57e8d820abaee2640a44a56d0477e150, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -396,8 +396,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NAVES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 775f260fc1fed6e488a27a8f5b275bc7, type: 2}
-  m_sharedMaterial: {fileID: 6162706661533352478, guid: 775f260fc1fed6e488a27a8f5b275bc7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 57e8d820abaee2640a44a56d0477e150, type: 2}
+  m_sharedMaterial: {fileID: 5429570163943431245, guid: 57e8d820abaee2640a44a56d0477e150, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1881,8 +1881,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SAIR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 57e8d820abaee2640a44a56d0477e150, type: 2}
+  m_sharedMaterial: {fileID: 5429570163943431245, guid: 57e8d820abaee2640a44a56d0477e150, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

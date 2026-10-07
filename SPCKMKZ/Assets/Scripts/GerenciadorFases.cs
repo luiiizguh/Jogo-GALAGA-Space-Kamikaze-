@@ -50,11 +50,16 @@ public class GerenciadorFases : MonoBehaviour
     public TMP_Text textoFase;
     public TMP_Text textoPontos;
     public TMP_Text textoRestantes;
+    public TMP_Text textoVidas;           // opcional
 
     [Header("Vitória")]
     public GameObject painelVitoria;
     public TMP_Text textoPontosVitoria;   // opcional
     public AudioClip musicaVitoria;       // opcional
+
+    [Header("Game Over")]
+    public GameObject painelGameOver;     // opcional
+    public TMP_Text textoPontosFinal;     // opcional
 
     // Pontuação total do jogador
     private int pontos = 0;
@@ -79,6 +84,9 @@ public class GerenciadorFases : MonoBehaviour
 
         if (painelVitoria != null)
             painelVitoria.SetActive(false);
+
+        if (painelGameOver != null)
+            painelGameOver.SetActive(false);
 
         // Começa com todos os objetos de fase desligados
         DesligarObjetosDasFases();
@@ -339,7 +347,31 @@ public class GerenciadorFases : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    // Ligar no botão "Jogar de novo" do painel de vitória
+    // Chamado pela nave para atualizar o texto de vidas
+    public void AtualizarVidas(int vidas)
+    {
+        if (textoVidas != null)
+            textoVidas.text = "VIDAS: " + vidas;
+    }
+
+    // Chamado quando a nave perde todas as vidas
+    public void GameOver()
+    {
+        if (jogoCompleto) return;
+        jogoCompleto = true;
+
+        Debug.Log("GAME OVER");
+
+        if (textoPontosFinal != null)
+            textoPontosFinal.text = "PONTOS: " + pontos;
+
+        if (painelGameOver != null)
+            painelGameOver.SetActive(true);
+
+        Time.timeScale = 0f;
+    }
+
+    // Ligar no botão "Jogar de novo" / "Reiniciar" dos painéis
     public void ReiniciarJogo()
     {
         Time.timeScale = 1f;
@@ -406,5 +438,12 @@ public class GerenciadorFases : MonoBehaviour
     public int ObterPontos()
     {
         return pontos;
+    }
+
+     public void SairDoJogo()
+    {
+        Debug.Log("Saindo do jogo...");
+
+        Application.Quit();
     }
 }

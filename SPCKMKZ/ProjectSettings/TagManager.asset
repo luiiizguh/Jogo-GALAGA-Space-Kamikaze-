@@ -7,6 +7,8 @@ TagManager:
   - Tiro
   - Nave
   - Inimigo
+  - Nucleo
+  - Jogador
   layers:
   - Default
   - TransparentFX
