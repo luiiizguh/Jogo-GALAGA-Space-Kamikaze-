@@ -573,10 +573,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.2802198
-    y: 0.24416137
-    width: 0.43956044
-    height: 0.50955415
+    x: 0.24842766
+    y: 0.16480446
+    width: 0.5031446
+    height: 0.670391
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -839,8 +839,8 @@ MonoBehaviour:
   - {fileID: 1612538588}
   - {fileID: 1485131616}
   - {fileID: 1586181086}
-  cenaNaves: SelecaoNaves
-  cenaJogo: Jogo
+  cenaNaves: "selec\xE3onave"
+  cenaJogo: Fase_1
   corSelecionado: {r: 0.8627452, g: 0.07843138, b: 0.2352941, a: 1}
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   escalaSelecionado: 1.1
