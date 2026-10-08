@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovimentoParaBaixo
   velocidade: 0.5
   destruirForaDaTela: 1
-  limiteInferior: -6
+  limiteInferior: -2
 --- !u!114 &4842483723403921268
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,7 +30,11 @@ public class VidaInimigos : MonoBehaviour
     {
 
         if (gerenciador != null)
-            gerenciador.InimigoDerrotado(pontos);
+        gerenciador.InimigoDerrotado(pontos);
+
+        // Conta a morte e, de vez em quando, solta vida ou habilidade
+        if (GerenciadorDrops.Instance != null)
+            GerenciadorDrops.Instance.RegistrarMorte(transform.position);
 
         Destroy(gameObject);
     }

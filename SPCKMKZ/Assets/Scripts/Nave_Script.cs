@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,6 +39,26 @@ public class Nave_Script : MonoBehaviour
 
 
     // ==========================================
+    // DROPS (VIDA E HABILIDADE)
+    // ==========================================
+
+    [Header("Drops")]
+
+    // Máximo de vidas que a nave pode ter
+    public int vidaMaxima = 8;
+
+    // Quanto tempo dura a habilidade de tiro rápido (segundos)
+    public float duracaoTiroRapido = 8f;
+
+    // 0.5 = o cooldown cai pela metade (atira 2x mais rápido)
+    [Range(0.1f, 1f)]
+    public float multiplicadorTiroRapido = 0.5f;
+
+    // Tempo restante da habilidade
+    private float tiroRapidoTimer = 0f;
+
+
+    // ==========================================
     // SOM DO TIRO
     // ==========================================
 
@@ -53,13 +72,25 @@ public class Nave_Script : MonoBehaviour
     // Start é chamado quando o jogo começa
     void Start()
     {
-
+        // Mostra as vidas iniciais no HUD
+        if (gameManager != null)
+            gameManager.AtualizarVidas(life);
     }
 
 
     // Update é chamado uma vez por frame
     void Update()
     {
+        // ==========================================
+        // CONTROLE DA HABILIDADE DE TIRO RÁPIDO
+        // ==========================================
+
+        if (tiroRapidoTimer > 0f)
+        {
+            tiroRapidoTimer -= Time.deltaTime;
+        }
+
+
         // Se apertar X, dispara
         if (Input.GetKey(KeyCode.X))
         {
@@ -225,8 +256,10 @@ public class Nave_Script : MonoBehaviour
             }
 
 
-            // Reinicia o cooldown
-            timer = shoot_cooldown;
+            // Reinicia o cooldown (mais curto se o tiro rápido estiver ativo)
+            timer = tiroRapidoTimer > 0f
+                ? shoot_cooldown * multiplicadorTiroRapido
+                : shoot_cooldown;
         }
     }
 
@@ -248,6 +281,10 @@ public class Nave_Script : MonoBehaviour
 
             life--;
 
+            // Atualiza as vidas no HUD
+            if (gameManager != null)
+                gameManager.AtualizarVidas(life);
+
 
             // ==========================================
             // GAME OVER
@@ -258,5 +295,25 @@ public class Nave_Script : MonoBehaviour
                 gameManager.GameOver();
             }
         }
+    }
+
+
+    // ==========================================
+    // DROPS: CHAMADOS PELO SCRIPT Drop
+    // ==========================================
+
+    // Ganha 1 vida (até o máximo)
+    public void GanharVida()
+    {
+        life = Mathf.Min(life + 1, vidaMaxima);
+
+        if (gameManager != null)
+            gameManager.AtualizarVidas(life);
+    }
+
+    // Ativa o tiro rápido (pegar outro renova o tempo)
+    public void GanharHabilidade()
+    {
+        tiroRapidoTimer = duracaoTiroRapido;
     }
 }
