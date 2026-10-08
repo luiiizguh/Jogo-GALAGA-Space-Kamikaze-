@@ -5,7 +5,7 @@ public class GameManagerScripts : MonoBehaviour
 {
     public static GameManagerScripts Instance; 
     
-    public GameObject naveSelecionada;
+    public int naveSelecionada;
 
     void Awake()
     {

@@ -36,6 +36,17 @@ public class GerenciadorFases : MonoBehaviour
     [Header("Referências")]
     public SpawnerInimigos spawner;
 
+    [Header("Naves")]
+    [Tooltip("Arraste todas as naves da cena, na MESMA ordem dos botões da tela de escolha (Element 0 = nave 0...).")]
+    public GameObject[] naves;
+
+    [Tooltip("Marque se a escolha da nave é um painel DENTRO desta cena. O jogo só começa depois do clique.")]
+    public bool esperarEscolhaNoPainel = false;
+    [Tooltip("Painel/tela de escolha (some quando a nave é escolhida). Opcional.")]
+    public GameObject painelEscolha;
+
+    private bool naveEscolhida = false;
+
     [Header("Troca do planeta")]
     [Tooltip("Câmera usada para saber se o planeta saiu da tela. Se vazio, usa a Main Camera.")]
     public Camera cameraJogo;
@@ -91,6 +102,23 @@ public class GerenciadorFases : MonoBehaviour
         // Começa com todos os objetos de fase desligados
         DesligarObjetosDasFases();
 
+        if (esperarEscolhaNoPainel)
+        {
+            // Escolha na mesma cena: desliga as naves e espera o clique no botão
+            DesligarNaves();
+
+            if (painelEscolha != null)
+                painelEscolha.SetActive(true);
+
+            while (!naveEscolhida)
+                yield return null;
+        }
+        else
+        {
+            // Escolha foi feita em outra cena: liga a nave que ficou salva
+            AtivarNaveEscolhida();
+        }
+
         yield return null;
 
         IniciarFase();
@@ -121,6 +149,54 @@ public class GerenciadorFases : MonoBehaviour
         fonteMusica.mute = false;
         fonteMusica.volume = 1f;
         fonteMusica.spatialBlend = 0f;   // som 2D, sem depender da posição
+    }
+
+    // Liga só a nave escolhida na tela de seleção e desliga as outras
+    void AtivarNaveEscolhida()
+    {
+        if (naves == null || naves.Length == 0)
+        {
+            Debug.LogWarning("Nenhuma nave foi arrastada na lista 'Naves' do GerenciadorFases.");
+            return;
+        }
+
+        int escolhida = SelecaoNave.Obter();
+
+        if (escolhida < 0 || escolhida >= naves.Length)
+            escolhida = 0;
+
+        for (int i = 0; i < naves.Length; i++)
+        {
+            if (naves[i] != null)
+                naves[i].SetActive(i == escolhida);
+        }
+
+        Debug.Log("Nave escolhida: " + escolhida);
+    }
+
+    // Desliga todas as naves
+    void DesligarNaves()
+    {
+        if (naves == null) return;
+
+        foreach (GameObject n in naves)
+        {
+            if (n != null)
+                n.SetActive(false);
+        }
+    }
+
+    // LIGUE ESTE MÉTODO NO OnClick DO BOTÃO DE CADA NAVE (pelo Inspector, sem mexer em outros scripts).
+    // Coloque no campo de número: 0 = primeira nave, 1 = segunda...
+    public void EscolherNave(int indice)
+    {
+        SelecaoNave.Escolher(indice);
+        AtivarNaveEscolhida();
+
+        naveEscolhida = true;
+
+        if (painelEscolha != null)
+            painelEscolha.SetActive(false);
     }
 
     void Update()
@@ -440,10 +516,28 @@ public class GerenciadorFases : MonoBehaviour
         return pontos;
     }
 
-     public void SairDoJogo()
+    public void SairDoJogo()
     {
         Debug.Log("Saindo do jogo...");
 
         Application.Quit();
+    }
+}
+
+// Guarda qual nave o jogador escolheu (funciona entre cenas).
+// Fica neste mesmo arquivo para você não precisar criar outro script.
+public static class SelecaoNave
+{
+    const string chave = "NaveEscolhida";
+
+    public static void Escolher(int indice)
+    {
+        PlayerPrefs.SetInt(chave, indice);
+        PlayerPrefs.Save();
+    }
+
+    public static int Obter()
+    {
+        return PlayerPrefs.GetInt(chave, 0); // 0 = primeira nave, se nunca escolheu
     }
 }
