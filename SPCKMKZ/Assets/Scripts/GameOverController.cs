@@ -1,4 +1,4 @@
-
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Controla o menu de Game Over usando somente o teclado.
 ///
-/// SETA PARA CIMA / BAIXO = muda a opção
+/// SETA PARA CIMA / BAIXO = muda a opção (toca o som de selecionar)
 /// ENTER = confirma
 ///
 /// Opções:
-/// 0 = RESTART
+/// 0 = RESTART (volta para a cena do menu)
 /// 1 = SAIR
 ///
 /// A opção selecionada fica maior para o jogador
@@ -22,24 +22,40 @@ public class GameOverController : MonoBehaviour
     [SerializeField] private Button botaoRestart;
     [SerializeField] private Button botaoSair;
 
+    [Header("Cena do menu")]
+    [Tooltip("Nome exato da cena do menu (precisa estar em File > Build Settings).")]
+    [SerializeField] private string nomeCenaMenu = "Menu";
+
     [Header("Tamanho dos botões")]
     [SerializeField] private float tamanhoNormal = 1f;
     [SerializeField] private float tamanhoSelecionado = 1.2f;
 
-    // 0 = Restart
+    [Header("Sons")]
+    [Tooltip("AudioSource só para efeitos (pode ser um AudioSource neste mesmo objeto).")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip somSelecionar;
+    [Tooltip("Opcional: som ao apertar Enter.")]
+    [SerializeField] private AudioClip somConfirmar;
+    [SerializeField] private float tempoAntesDeConfirmar = 0.3f;
+
+    // 0 = Restart (menu)
     // 1 = Sair
     private int opcaoSelecionada = 0;
+    private bool confirmado = false;
 
     private void OnEnable()
     {
-        // Começa selecionando RESTART
+        // Começa selecionando RESTART (sem tocar som ao abrir o painel)
         opcaoSelecionada = 0;
+        confirmado = false;
 
-        AtualizarSelecao();
+        AtualizarSelecao(false);
     }
 
     private void Update()
     {
+        if (confirmado) return;
+
         // =========================
         // SETA PARA CIMA
         // =========================
@@ -47,14 +63,12 @@ public class GameOverController : MonoBehaviour
         {
             opcaoSelecionada--;
 
-            // Se passar do primeiro botão,
-            // vai para o último
             if (opcaoSelecionada < 0)
             {
                 opcaoSelecionada = 1;
             }
 
-            AtualizarSelecao();
+            AtualizarSelecao(true);
         }
 
         // =========================
@@ -64,78 +78,85 @@ public class GameOverController : MonoBehaviour
         {
             opcaoSelecionada++;
 
-            // Se passar do último botão,
-            // volta para o primeiro
             if (opcaoSelecionada > 1)
             {
                 opcaoSelecionada = 0;
             }
 
-            AtualizarSelecao();
+            AtualizarSelecao(true);
         }
 
         // =========================
         // ENTER
         // =========================
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            ConfirmarOpcao();
+            StartCoroutine(ConfirmarOpcao());
         }
     }
 
     // Atualiza o visual da opção selecionada
-    private void AtualizarSelecao()
+    private void AtualizarSelecao(bool tocarSom)
     {
-        // Primeiro deixa os dois botões
-        // com tamanho normal
-        botaoRestart.transform.localScale =
-            Vector3.one * tamanhoNormal;
+        botaoRestart.transform.localScale = Vector3.one * tamanhoNormal;
+        botaoSair.transform.localScale = Vector3.one * tamanhoNormal;
 
-        botaoSair.transform.localScale =
-            Vector3.one * tamanhoNormal;
-
-        // Depois aumenta somente o selecionado
         if (opcaoSelecionada == 0)
         {
-            botaoRestart.transform.localScale =
-                Vector3.one * tamanhoSelecionado;
-
+            botaoRestart.transform.localScale = Vector3.one * tamanhoSelecionado;
             botaoRestart.Select();
         }
         else
         {
-            botaoSair.transform.localScale =
-                Vector3.one * tamanhoSelecionado;
-
+            botaoSair.transform.localScale = Vector3.one * tamanhoSelecionado;
             botaoSair.Select();
+        }
+
+        if (tocarSom)
+        {
+            TocarSom(somSelecionar);
+        }
+    }
+
+    private void TocarSom(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
         }
     }
 
     // Executa a opção escolhida
-    private void ConfirmarOpcao()
+    private IEnumerator ConfirmarOpcao()
     {
+        confirmado = true;
+
+        if (somConfirmar != null)
+        {
+            TocarSom(somConfirmar);
+
+            // Realtime porque o jogo está com Time.timeScale = 0 no Game Over
+            yield return new WaitForSecondsRealtime(tempoAntesDeConfirmar);
+        }
+
         if (opcaoSelecionada == 0)
         {
-            // RESTART
-            ReiniciarJogo();
+            VoltarParaMenu();
         }
         else
         {
-            // SAIR
             SairDoJogo();
         }
     }
 
-    // Reinicia o jogo
-    private void ReiniciarJogo()
+    // Volta para a cena do menu
+    private void VoltarParaMenu()
     {
-        // Volta o tempo do jogo ao normal
+        // Volta o tempo e o áudio ao normal antes de trocar de cena
         Time.timeScale = 1f;
+        AudioListener.pause = false;
 
-        // Recarrega a cena atual
-        SceneManager.LoadScene(
-            SceneManager.GetActiveScene().buildIndex
-        );
+        SceneManager.LoadScene(nomeCenaMenu);
     }
 
     // Fecha o jogo

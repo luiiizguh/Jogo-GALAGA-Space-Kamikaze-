@@ -13,15 +13,46 @@ public class ShipSelector : MonoBehaviour
     [Header("Cena do jogo")]
     public string nomeCenaJogo = "SampleScene";
 
+    [Header("Sons")]
+    public AudioSource audioSource;       // AudioSource só para efeitos (NÃO o da música)
+    public AudioClip somTrocar;           // som ao passar de uma nave para outra
+    public AudioClip somConfirmar;        // som ao confirmar a escolha
+    public float tempoAntesDeTrocarCena = 0.4f; // tempo para o som de confirmar tocar
+
     // Guarda qual nave foi escolhida (acessível de qualquer script/cena)
     public static int NaveEscolhida = 0;
 
     private int indiceAtual = 0;
+    private bool confirmado = false;
 
     void Start()
     {
         indiceAtual = 0;
+        confirmado = false;
         AtualizarImagem();
+    }
+
+    void Update()
+    {
+        if (confirmado) return; // evita apertar várias vezes durante a troca de cena
+
+        // Setas ou A/D para trocar de nave
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        {
+            ProximaNave();
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
+            NaveAnterior();
+        }
+
+        // Enter ou Espaço para confirmar
+        if (Input.GetKeyDown(KeyCode.Return) ||
+            Input.GetKeyDown(KeyCode.KeypadEnter) ||
+            Input.GetKeyDown(KeyCode.Space))
+        {
+            ConfirmarEscolha();
+        }
     }
 
     public void ProximaNave()
@@ -30,6 +61,7 @@ public class ShipSelector : MonoBehaviour
         if (indiceAtual >= naves.Length)
             indiceAtual = 0; // volta pra primeira
 
+        TocarSom(somTrocar);
         AtualizarImagem();
     }
 
@@ -39,6 +71,7 @@ public class ShipSelector : MonoBehaviour
         if (indiceAtual < 0)
             indiceAtual = naves.Length - 1; // vai pra última
 
+        TocarSom(somTrocar);
         AtualizarImagem();
     }
 
@@ -50,11 +83,30 @@ public class ShipSelector : MonoBehaviour
         }
     }
 
-    // Chame esse método no botão "Confirmar" / "Jogar"
+    void TocarSom(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
+
+    // Chamado ao apertar Enter/Espaço (ou por botão, se quiser)
     public void ConfirmarEscolha()
     {
+        if (confirmado) return;
+        confirmado = true;
+
         NaveEscolhida = indiceAtual;
+        SelecaoNave.Escolher(indiceAtual); // <-- NOVA LINHA: grava a escolha para o GerenciadorFases
         Debug.Log("Nave escolhida: " + indiceAtual);
+
+        TocarSom(somConfirmar);
+        Invoke(nameof(CarregarCena), tempoAntesDeTrocarCena);
+    }
+
+    void CarregarCena()
+    {
         SceneManager.LoadScene(nomeCenaJogo);
     }
 }

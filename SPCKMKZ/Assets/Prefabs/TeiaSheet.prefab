@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1a3849f8744b54eb2c5c03ce36b38a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeiaProjetil
-  velocidade: 4
+  velocidade: 2
   limiteInferior: -6
   tagNave: Nave
   multiplicadorLentidao: 0.5

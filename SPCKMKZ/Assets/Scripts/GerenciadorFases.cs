@@ -21,6 +21,9 @@ public class GerenciadorFases : MonoBehaviour
 
         public AudioClip musica;
     }
+    [Header("Menu")]
+    [Tooltip("Nome exato da cena do menu (precisa estar em File > Build Settings).")]
+    public string nomeCenaMenu = "Menu";
 
     [Header("Fases (Element 0 = fase 1, Element 1 = fase 2...)")]
     public List<ConfigFase> fases = new List<ConfigFase>();
@@ -56,6 +59,8 @@ public class GerenciadorFases : MonoBehaviour
     [Header("Música")]
     [Tooltip("AudioSource que toca a música. Se ficar vazio, o gerenciador cria um sozinho.")]
     public AudioSource fonteMusica;
+    [Range(0f, 1f)]
+    public float volumeMusica = 0.5f;
 
     [Header("HUD")]
     public TMP_Text textoFase;
@@ -147,12 +152,12 @@ public class GerenciadorFases : MonoBehaviour
 
         fonteMusica.playOnAwake = false;
         fonteMusica.mute = false;
-        fonteMusica.volume = 1f;
-        fonteMusica.spatialBlend = 0f;   // som 2D, sem depender da posição
+        fonteMusica.volume = volumeMusica;   // antes era 1f
+        fonteMusica.spatialBlend = 0f;
     }
 
     // Liga só a nave escolhida na tela de seleção e desliga as outras
-    void AtivarNaveEscolhida()
+   void AtivarNaveEscolhida()
     {
         if (naves == null || naves.Length == 0)
         {
@@ -169,6 +174,15 @@ public class GerenciadorFases : MonoBehaviour
         {
             if (naves[i] != null)
                 naves[i].SetActive(i == escolhida);
+        }
+
+        // Liga automaticamente a nave a este gerenciador (evita o campo vazio)
+        if (naves[escolhida] != null)
+        {
+            Nave_Script scriptNave = naves[escolhida].GetComponentInChildren<Nave_Script>(true);
+
+            if (scriptNave != null && scriptNave.gameManager == null)
+                scriptNave.gameManager = this;
         }
 
         Debug.Log("Nave escolhida: " + escolhida);
@@ -451,7 +465,8 @@ public class GerenciadorFases : MonoBehaviour
     public void ReiniciarJogo()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        AudioListener.pause = false;
+        SceneManager.LoadScene(nomeCenaMenu);
     }
 
     // Chamado pelo Spawner logo depois de criar cada inimigo

@@ -179,12 +179,15 @@ MonoBehaviour:
   tagJogador: Nave
   velocidadeInicial: 1.5
   tempoDeEntrada: 1
-  tempoSuavizacaoGiro: 0.35
-  anguloParaMergulhar: 3
+  tempoSuavizacaoGiro: 0.3
+  anguloParaMergulhar: 1
   tempoMaximoMirando: 1
   velocidadeMaxima: 9
   aceleracao: 4
   offsetAnguloSprite: -90
+  cameraJogo: {fileID: 0}
+  margemViewport: 0.3
+  tempoMaximoDeVida: 20
   tagProjetil: Projetil
   tagNave: Nave
   prefabExplosao: {fileID: 3657530502215609782, guid: c9efc9c6be966f244ae95f273dd389d5, type: 3}

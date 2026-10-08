@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8402425592543980159}
   - component: {fileID: 4473860232020511851}
   m_Layer: 0
-  m_Name: "Vil\xE3oForte"
+  m_Name: InimigoForte
   m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6783823653946351042}
@@ -144,12 +144,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VilaoZigZag
   vida: 8
-  velocidadeDescida: 0.5
+  velocidadeDescida: 0.4
   amplitudeZigZag: 1
   velocidadeZigZag: 1
+  margemLateral: 0.5
+  posicaoInicialAleatoria: 1
+  faseAleatoria: 1
   prefabTeia: {fileID: 2760578118214018881, guid: 4dcae705c189b9e49bcd2448d78bf2a5, type: 3}
   spawnTiro: {fileID: 5233318050208784153}
-  intervaloTiro: 0.6
+  intervaloTiro: 0.9
   tagProjetilJogador: Tiro
   danoPorAcerto: 1
 --- !u!114 &4473860232020511851

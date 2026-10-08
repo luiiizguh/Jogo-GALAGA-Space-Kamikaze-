@@ -3,6 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Inimigo Namikaze: entra devagar, depois MIRA no jogador girando de forma
 /// suave, e quando estiver bem alinhado TRAVA a direção e mergulha acelerando.
+/// Se destrói ao sair da visão da câmera por qualquer um dos 4 lados.
 ///
 /// A direção de MOVIMENTO é calculada separadamente da rotação VISUAL do
 /// sprite — assim, ajustar "offsetAnguloSprite" corrige a aparência sem
@@ -39,6 +40,14 @@ public class InimigoNamikaze : MonoBehaviour
     [Tooltip("Gire este valor em passos de 90 até a ponta do sprite ficar visualmente correta: teste 0, 90, 180 e -90.")]
     public float offsetAnguloSprite = 0f;
 
+    [Header("Saída da tela")]
+    [Tooltip("Câmera usada para saber se saiu da tela. Se vazio, usa a Main Camera.")]
+    public Camera cameraJogo;
+    [Tooltip("Quanto ele precisa passar da borda para ser destruído (em fração da tela: 0.1 = 10%). Use o tamanho do sprite como referência.")]
+    public float margemViewport = 0.1f;
+    [Tooltip("Segurança: se passar esse tempo (segundos) vivo, é destruído de qualquer jeito. 0 = desligado.")]
+    public float tempoMaximoDeVida = 20f;
+
     [Header("Colisão")]
     [Tooltip("Tag usada pelos projéteis do jogador.")]
     public string tagProjetil = "Projetil";
@@ -60,6 +69,9 @@ public class InimigoNamikaze : MonoBehaviour
     private Vector2 direcaoMergulho;
     private float tempoMirandoAcumulado;
 
+    // Só começa a destruir depois que ele já apareceu na tela
+    private bool jaApareceuNaTela = false;
+
     void Start()
     {
         velocidadeAtual = velocidadeInicial;
@@ -67,6 +79,9 @@ public class InimigoNamikaze : MonoBehaviour
         // Começa apontando puramente pra baixo (-90° no sistema atan2).
         anguloMovimento = -90f;
         AtualizarRotacaoVisual();
+
+        if (cameraJogo == null)
+            cameraJogo = Camera.main;
 
         if (jogador == null)
         {
@@ -90,6 +105,42 @@ public class InimigoNamikaze : MonoBehaviour
             case Estado.Mergulhando:
                 AtualizarMergulho();
                 break;
+        }
+
+        VerificarSaidaDaTela();
+    }
+
+    // Destrói o inimigo quando ele sai da câmera por qualquer lado (cima, baixo, esquerda ou direita)
+    private void VerificarSaidaDaTela()
+    {
+        // Segurança: nunca deixa um inimigo vivo para sempre
+        if (tempoMaximoDeVida > 0f && tempoDecorrido >= tempoMaximoDeVida)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        if (cameraJogo == null) return;
+
+        Vector3 v = cameraJogo.WorldToViewportPoint(transform.position);
+
+        bool dentroDaTela = v.x >= 0f && v.x <= 1f && v.y >= 0f && v.y <= 1f;
+
+        if (dentroDaTela)
+        {
+            jaApareceuNaTela = true;
+            return;
+        }
+
+        // Ainda não entrou na tela (está nascendo fora dela): não destrói
+        if (!jaApareceuNaTela) return;
+
+        bool saiuDeVez = v.x < -margemViewport || v.x > 1f + margemViewport ||
+                         v.y < -margemViewport || v.y > 1f + margemViewport;
+
+        if (saiuDeVez)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -161,7 +212,8 @@ public class InimigoNamikaze : MonoBehaviour
 
         if (other.CompareTag(tagNave))
         {
-            if (prefabExplosao != null){
+            if (prefabExplosao != null)
+            {
                 Instantiate(prefabExplosao, transform.position, transform.rotation);
             }
             // A nave não é destruída aqui — isso fica a cargo do script dela mesma
@@ -169,5 +221,4 @@ public class InimigoNamikaze : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
