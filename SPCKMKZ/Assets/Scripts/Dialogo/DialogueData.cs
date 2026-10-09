@@ -7,9 +7,6 @@ public class DialogueData : ScriptableObject
     [TextArea(2, 5)]
     public string[] falas;
 
-    public Sprite imagemA;
-    public Sprite imagemB;
-
     [Tooltip("Cena carregada quando o diálogo terminar (precisa estar no Build Settings)")]
     public string proximaCena;
 }

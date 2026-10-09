@@ -228,8 +228,8 @@ MonoBehaviour:
   life: 5
   shoot_damage: 5
   shoot_cooldown: 0.08
-  velocity: 0.9
-  shoot_prefab: {fileID: 6491981245840268139, guid: e3bc6fb9a37f40c499551a7eb4075569, type: 3}
+  velocity: 1.2
+  shoot_prefab: {fileID: 6491981245840268139, guid: 56d493cb4b96bd544b1322e501930190, type: 3}
   spawn_tiro:
   - {fileID: 2383340227574852935}
   - {fileID: 481474029861722835}
@@ -237,8 +237,11 @@ MonoBehaviour:
   Intercalate: 1
   sprite: {fileID: 3480159284757696785}
   gameManager: {fileID: 0}
+<<<<<<< HEAD
   audioSource: {fileID: -4765117771239845149}
   somTiro: {fileID: 8300000, guid: e98ae56a10580d0478fce73a75d28818, type: 3}
+=======
+>>>>>>> origin/Tales_Branch
 --- !u!58 &6589050563235824574
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class Enemie_Test_Script : MonoBehaviour
+public class LifesScript : MonoBehaviour
 {
-
-    public float vida = 10f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,15 +12,5 @@ public class Enemie_Test_Script : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void ReceberDano(float dano){
-
-        vida-=dano;
-        if (vida <= 0){
-
-            Destroy(gameObject);
-        }
-        Debug.Log(vida);
     }
 }

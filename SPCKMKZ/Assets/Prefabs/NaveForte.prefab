@@ -52,8 +52,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Nave_Script
   life: 5
   shoot_damage: 5
-  shoot_cooldown: 0.4
-  velocity: 1
+  shoot_cooldown: 0.6
+  velocity: 1.2
   shoot_prefab: {fileID: 6491981245840268139, guid: c1d4df94b78587f4384d22e7bd43379f, type: 3}
   spawn_tiro:
   - {fileID: 2212557842539107924}
@@ -62,8 +62,11 @@ MonoBehaviour:
   Intercalate: 1
   sprite: {fileID: 5020575021162394381}
   gameManager: {fileID: 0}
+<<<<<<< HEAD
   audioSource: {fileID: 7854424889503455461}
   somTiro: {fileID: 8300000, guid: e98ae56a10580d0478fce73a75d28818, type: 3}
+=======
+>>>>>>> origin/Tales_Branch
 --- !u!58 &6689972958888302543
 CircleCollider2D:
   m_ObjectHideFlags: 0

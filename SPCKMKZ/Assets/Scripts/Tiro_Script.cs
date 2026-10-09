@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Tiro_Script : MonoBehaviour
 {
-    public int damage;
+    public float damage;
     public float velocity = 0.2f;
     public GameObject destroy_prefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,7 +24,7 @@ public class Tiro_Script : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col){
 
 
-        if (col.gameObject.CompareTag("Inimigo")){
+        if (col.gameObject.CompareTag("Inimigo") || col.gameObject.CompareTag("Boss")){
 
             Vector2 col_point = col.ClosestPoint(transform.position);
             VidaInimigos inimigo = col.GetComponent<VidaInimigos>();

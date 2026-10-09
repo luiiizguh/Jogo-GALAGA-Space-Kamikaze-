@@ -263,6 +263,7 @@ public class Nave_Script : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
 
     // ==========================================
     // COLISÃO COM INIMIGO
@@ -272,6 +273,11 @@ public class Nave_Script : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Inimigo") && vulnerable == true)
         {
+=======
+    private void OnTriggerEnter2D(Collider2D col){
+        
+        if ((col.gameObject.CompareTag("Inimigo") || col.gameObject.CompareTag("Boss")) && vulnerable == true){
+>>>>>>> origin/Tales_Branch
             Debug.Log("Memes");
 
 
@@ -280,10 +286,15 @@ public class Nave_Script : MonoBehaviour
             vulnerable_timer = 0;
 
             life--;
+<<<<<<< HEAD
 
             // Atualiza as vidas no HUD
             if (gameManager != null)
                 gameManager.AtualizarVidas(life);
+=======
+            SistemaVidas.Instance.PerderVida();
+            if (life <= 0){
+>>>>>>> origin/Tales_Branch
 
 
             // ==========================================
