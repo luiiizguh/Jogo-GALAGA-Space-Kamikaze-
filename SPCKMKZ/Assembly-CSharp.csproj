@@ -54,6 +54,7 @@
     <Compile Include="Assets\Scripts\Drop.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\InimigoNamikaze.cs" />
+    <Compile Include="Assets\Scripts\Boss\BossController.cs" />
     <Compile Include="Assets\Scripts\ParteInimigo.cs" />
     <Compile Include="Assets\Scripts\PauseJogo.cs" />
     <Compile Include="Assets\Scripts\InimigoEscudo.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\Scripts\MusicaPersistente.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\CometaRolando.cs" />
+    <Compile Include="Assets\Scripts\Boss\BossBrocaScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Assets\Scripts\DialogueLoader.cs" />
     <Compile Include="Assets\Scripts\TeiaProjetil.cs" />
     <Compile Include="Assets\Scripts\SpawnerInimigos.cs" />
+    <Compile Include="Assets\Scripts\Boss\BossBrocaLancaScript.cs" />
     <Compile Include="Assets\Scripts\Shot_Destroy_Script.cs" />
     <Compile Include="Assets\Scripts\Enemie_Test_Script.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Assets\Scripts\Vilao zig zag.cs" />
     <Compile Include="Assets\Scripts\GerenciadorDrops.cs" />
     <Compile Include="Assets\Scripts\VidaInimigos.cs" />
+    <Compile Include="Assets\Scripts\Boss\FuradeirinhaScript.cs" />
     <Compile Include="Assets\Scripts\Movimento_estrela.cs" />
     <Compile Include="Assets\Scripts\Tiro_Spawn_Script.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
