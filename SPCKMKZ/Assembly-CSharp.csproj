@@ -48,14 +48,15 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GerenciadorFases.cs" />
-    <Compile Include="Assets\Scripts\TypewriterDialogue.cs" />
-    <Compile Include="Assets\Scripts\DialogueData.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\TypewriterDialogue.cs" />
     <Compile Include="Assets\Scripts\Nave_Script.cs" />
-    <Compile Include="Assets\Scripts\DialogueLoader.cs" />
     <Compile Include="Assets\Scripts\Shot_Destroy_Script.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\DialogueLoader.cs" />
     <Compile Include="Assets\Scripts\Enemie_Test_Script.cs" />
+    <Compile Include="Assets\Scripts\LifesScript.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\DialogueData.cs" />
     <Compile Include="Assets\Scripts\Tiro_Spawn_Script.cs" />
+    <Compile Include="Assets\Scripts\VidaUIScript.cs" />
     <Compile Include="Assets\Scripts\Tiro_Script.cs" />
   </ItemGroup>
   <ItemGroup>
