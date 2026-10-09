@@ -105,7 +105,7 @@ public class Nave_Script : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col){
         
-        if (col.gameObject.CompareTag("Inimigo") && vulnerable == true){
+        if ((col.gameObject.CompareTag("Inimigo") || col.gameObject.CompareTag("Boss")) && vulnerable == true){
             Debug.Log("Memes");
             vulnerable = false;
             vulnerable_timer = 0;

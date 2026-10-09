@@ -24,7 +24,7 @@ public class Tiro_Script : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col){
 
 
-        if (col.gameObject.CompareTag("Inimigo")){
+        if (col.gameObject.CompareTag("Inimigo") || col.gameObject.CompareTag("Boss")){
 
             Vector2 col_point = col.ClosestPoint(transform.position);
             Enemie_Test_Script inimigo = col.GetComponent<Enemie_Test_Script>();
