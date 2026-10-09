@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7ebd1f4a2351dc14f9cdc176e44dd687
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - corpoComBroca: {fileID: 2577907164725770494, guid: a0bc5a9ec1be3794ca285ada0eaeb324, type: 3}
+  - corpoSemBroca: {instanceID: 0}
+  - broca: {fileID: 4740758533800209931, guid: afee75d5b0dff8d4bbc58a15869b628f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
