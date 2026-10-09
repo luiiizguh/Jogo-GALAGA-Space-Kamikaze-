@@ -54,7 +54,7 @@
     <Compile Include="Assets\Scripts\Drop.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\InimigoNamikaze.cs" />
-    <Compile Include="Assets\Scripts\Boss\BossController.cs" />
+    <Compile Include="Assets\Prefabs\Boss\BossController.cs" />
     <Compile Include="Assets\Scripts\ParteInimigo.cs" />
     <Compile Include="Assets\Scripts\PauseJogo.cs" />
     <Compile Include="Assets\Scripts\InimigoEscudo.cs" />
@@ -62,9 +62,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\GameOverController.cs" />
     <Compile Include="Assets\Scripts\MenuController.cs" />
+    <Compile Include="Assets\Scripts\VelocidadeAnimacao.cs" />
     <Compile Include="Assets\Scripts\GerenciadorFases.cs" />
     <Compile Include="Assets\Scripts\PlanetaRolando.cs" />
     <Compile Include="Assets\Scripts\InimigoAtirador.cs" />
+    <Compile Include="Assets\Prefabs\Boss\BossBrocaScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
@@ -80,10 +82,10 @@
     <Compile Include="Assets\Scripts\DialogueData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\Scripts\ControlesCenaScript.cs" />
     <Compile Include="Assets\Scripts\MusicaPersistente.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\CometaRolando.cs" />
-    <Compile Include="Assets\Scripts\Boss\BossBrocaScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -98,7 +100,6 @@
     <Compile Include="Assets\Scripts\DialogueLoader.cs" />
     <Compile Include="Assets\Scripts\TeiaProjetil.cs" />
     <Compile Include="Assets\Scripts\SpawnerInimigos.cs" />
-    <Compile Include="Assets\Scripts\Boss\BossBrocaLancaScript.cs" />
     <Compile Include="Assets\Scripts\Shot_Destroy_Script.cs" />
     <Compile Include="Assets\Scripts\Enemie_Test_Script.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
@@ -107,11 +108,11 @@
     <Compile Include="Assets\Scripts\Vilao zig zag.cs" />
     <Compile Include="Assets\Scripts\GerenciadorDrops.cs" />
     <Compile Include="Assets\Scripts\VidaInimigos.cs" />
-    <Compile Include="Assets\Scripts\Boss\FuradeirinhaScript.cs" />
     <Compile Include="Assets\Scripts\Movimento_estrela.cs" />
     <Compile Include="Assets\Scripts\Tiro_Spawn_Script.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Prefabs\Boss\FuradeirinhaScript.cs" />
     <Compile Include="Assets\Scripts\explosao.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Prefabs\Boss\BossBrocaLancaScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
   </ItemGroup>
   <ItemGroup>

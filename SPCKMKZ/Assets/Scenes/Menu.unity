@@ -573,10 +573,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.06394558
-    y: 0.050561797
-    width: 0.8707483
-    height: 0.8988764
+    x: 0.12441315
+    y: 0
+    width: 0.75117373
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1842,6 +1842,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88c541756425f9438e1c1401e409401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicaPersistente
+  cenasQueParam:
+  - Fase_1
 --- !u!1 &1889233024
 GameObject:
   m_ObjectHideFlags: 0

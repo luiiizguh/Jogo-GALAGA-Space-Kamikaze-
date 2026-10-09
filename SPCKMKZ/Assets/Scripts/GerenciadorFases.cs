@@ -20,6 +20,10 @@ public class GerenciadorFases : MonoBehaviour
         public GameObject objetoDaFase;
 
         public AudioClip musica;
+
+        [Tooltip("Marque para os inimigos desta fase nascerem sempre na posição abaixo (ex.: boss).")]
+        public bool usarSpawnFixo = false;
+        public Vector2 posicaoSpawn = new Vector2(0f, 1.4f);
     }
     [Header("Menu")]
     [Tooltip("Nome exato da cena do menu (precisa estar em File > Build Settings).")]
@@ -35,6 +39,8 @@ public class GerenciadorFases : MonoBehaviour
     [HideInInspector] public int quantidadeInimigos;
     [HideInInspector] public float tempoEntreSpawns;
     [HideInInspector] public GameObject inimigoAtual;
+    [HideInInspector] public bool spawnFixoAtual;
+    [HideInInspector] public Vector2 posicaoSpawnAtual;
 
     [Header("Referências")]
     public SpawnerInimigos spawner;
@@ -256,6 +262,8 @@ public class GerenciadorFases : MonoBehaviour
         inimigoAtual = config.inimigoPrefab;
         quantidadeInimigos = config.quantidadeInimigos;
         tempoEntreSpawns = config.tempoEntreSpawns;
+        spawnFixoAtual = config.usarSpawnFixo;
+        posicaoSpawnAtual = config.posicaoSpawn;
 
         AtivarObjetoDaFase(config.objetoDaFase);
         TocarMusica(config.musica, true);

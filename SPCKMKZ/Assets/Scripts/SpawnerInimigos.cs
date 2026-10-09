@@ -40,13 +40,26 @@ public class SpawnerInimigos : MonoBehaviour
         // Enquanto ainda faltar criar inimigos
         while (inimigosCriados < gerenciadorFases.quantidadeInimigos)
         {
-            // Escolhe uma posição aleatória no eixo X
-            float posicaoX = Random.Range(X_MIN, X_MAX);
+            // Posição de nascimento: fixa (boss) ou aleatória no eixo X (inimigos normais)
+            Vector3 posicao;
+
+            if (gerenciadorFases.spawnFixoAtual)
+            {
+                posicao = new Vector3(
+                    gerenciadorFases.posicaoSpawnAtual.x,
+                    gerenciadorFases.posicaoSpawnAtual.y,
+                    0f
+                );
+            }
+            else
+            {
+                posicao = new Vector3(Random.Range(X_MIN, X_MAX), Y_INICIAL, 0f);
+            }
 
             // Cria o inimigo da fase atual
             GameObject novo = Instantiate(
                 gerenciadorFases.inimigoAtual,
-                new Vector3(posicaoX, Y_INICIAL, 0f),
+                posicao,
                 Quaternion.identity
             );
 
