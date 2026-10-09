@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 8631787678882667915}
   - component: {fileID: 3179765690510762426}
   m_Layer: 0
-  m_Name: Tiro_Normal
+  m_Name: TiroNaveRapida
   m_TagString: Tiro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffe2a662a5ce58498c098b7bcd362be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tiro_Script
-  damage: 3
+  damage: 0.5
   velocity: 3
   destroy_prefab: {fileID: 8150647094937526813, guid: 24d46d2355ce4e14dbcce5b43ed6028c, type: 3}
 --- !u!58 &8631787678882667915

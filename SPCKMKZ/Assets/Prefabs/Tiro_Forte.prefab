@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffe2a662a5ce58498c098b7bcd362be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tiro_Script
-  damage: 3
+  damage: 5
   velocity: 2
   destroy_prefab: {fileID: 8150647094937526813, guid: 24d46d2355ce4e14dbcce5b43ed6028c, type: 3}
 --- !u!50 &6053861167829812387

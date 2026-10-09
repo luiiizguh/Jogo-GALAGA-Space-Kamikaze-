@@ -110,7 +110,7 @@ public class Nave_Script : MonoBehaviour
             vulnerable = false;
             vulnerable_timer = 0;
             life--;
-
+            SistemaVidas.Instance.PerderVida();
             if (life <= 0){
 
                 gameManager.GameOver();

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Tiro_Script : MonoBehaviour
 {
-    public int damage;
+    public float damage;
     public float velocity = 0.2f;
     public GameObject destroy_prefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

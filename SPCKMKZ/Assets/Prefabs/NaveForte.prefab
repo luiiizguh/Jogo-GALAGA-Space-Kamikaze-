@@ -51,8 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Nave_Script
   life: 5
   shoot_damage: 5
-  shoot_cooldown: 0.4
-  velocity: 1
+  shoot_cooldown: 0.6
+  velocity: 1.2
   shoot_prefab: {fileID: 6491981245840268139, guid: c1d4df94b78587f4384d22e7bd43379f, type: 3}
   spawn_tiro:
   - {fileID: 2212557842539107924}
@@ -60,6 +60,7 @@ MonoBehaviour:
   spawn_efx: {fileID: 7221585585806007691, guid: 97b48d0b4d629f14887c26d469b6df79, type: 3}
   Intercalate: 1
   sprite: {fileID: 5020575021162394381}
+  gameManager: {fileID: 0}
 --- !u!58 &6689972958888302543
 CircleCollider2D:
   m_ObjectHideFlags: 0
