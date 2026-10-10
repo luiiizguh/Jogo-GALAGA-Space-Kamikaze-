@@ -32,15 +32,23 @@ public class GerenciadorDrops : MonoBehaviour
     }
 
     // Chame isso quando um inimigo morrer
+
     public void RegistrarMorte(Vector3 posicao)
     {
         mortesAtuais++;
+        Debug.Log("DROP: mortes " + mortesAtuais + " / " + mortesParaProximoDrop);
 
         if (mortesAtuais >= mortesParaProximoDrop)
         {
             GameObject prefab = Random.value < chanceDeVida ? prefabVida : prefabHabilidade;
-            if (prefab != null)
+
+            if (prefab == null)
+                Debug.LogError("DROP: o prefab sorteado está VAZIO!");
+            else
+            {
                 Instantiate(prefab, posicao, Quaternion.identity);
+                Debug.Log("DROP: criado " + prefab.name + " em " + posicao);
+            }
 
             SortearProximoDrop();
         }

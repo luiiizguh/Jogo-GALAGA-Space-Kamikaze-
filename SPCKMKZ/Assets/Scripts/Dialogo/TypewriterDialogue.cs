@@ -82,7 +82,7 @@ public class TypewriterDialogue : MonoBehaviour
         {
             string cena = dados.proximaCena;
             DialogueLoader.Limpar();
-            SceneManager.LoadScene(cena);
+            SceneManager.LoadScene("Fase_1");
             return;
         }
 

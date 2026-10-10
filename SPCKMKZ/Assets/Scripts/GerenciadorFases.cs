@@ -68,6 +68,12 @@ public class GerenciadorFases : MonoBehaviour
     [Range(0f, 1f)]
     public float volumeMusica = 0.5f;
 
+    [Header("Transição do Boss")]
+    [Tooltip("Número da fase do boss (4 = Element 3 da lista de fases).")]
+    public int faseDoBoss = 4;
+    [Tooltip("Objeto com o script TransicaoBoss. Se ficar vazio, a fase do boss começa direto, sem animação.")]
+    public TransicaoBoss transicaoBoss;
+
     [Header("HUD")]
     public TMP_Text textoFase;
     public TMP_Text textoPontos;
@@ -163,7 +169,7 @@ public class GerenciadorFases : MonoBehaviour
     }
 
     // Liga só a nave escolhida na tela de seleção e desliga as outras
-   void AtivarNaveEscolhida()
+    void AtivarNaveEscolhida()
     {
         if (naves == null || naves.Length == 0)
         {
@@ -266,8 +272,27 @@ public class GerenciadorFases : MonoBehaviour
         posicaoSpawnAtual = config.posicaoSpawn;
 
         AtivarObjetoDaFase(config.objetoDaFase);
-        TocarMusica(config.musica, true);
 
+        if (faseAtual == faseDoBoss && transicaoBoss != null)
+        {
+            // Fase do boss: a animação roda primeiro; música e spawner começam depois
+            StartCoroutine(IniciarFaseDoBoss(config));
+        }
+        else
+        {
+            TocarMusica(config.musica, true);
+            IniciarSpawner();
+        }
+
+        AtualizarHUD();
+
+        Debug.Log("FASE " + faseAtual + " INICIADA (" + config.nome + ")");
+        Debug.Log("Quantidade de inimigos: " + quantidadeInimigos);
+    }
+
+    // Avisa o spawner para começar a criar os inimigos da fase atual
+    void IniciarSpawner()
+    {
         if (spawner != null)
         {
             spawner.IniciarFase();
@@ -276,11 +301,14 @@ public class GerenciadorFases : MonoBehaviour
         {
             Debug.LogError("Não existe nenhum SpawnerInimigos ativo na cena!", this);
         }
+    }
 
-        AtualizarHUD();
+    // Toca a animação da nave indo para o boss e só depois começa o spawner
+    IEnumerator IniciarFaseDoBoss(ConfigFase config)
+    {
+        yield return transicaoBoss.Executar(fonteMusica, config.musica, volumeMusica);
 
-        Debug.Log("FASE " + faseAtual + " INICIADA (" + config.nome + ")");
-        Debug.Log("Quantidade de inimigos: " + quantidadeInimigos);
+        IniciarSpawner();
     }
 
     // Desliga os objetos de todas as fases da lista

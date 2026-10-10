@@ -301,6 +301,9 @@ public class Nave_Script : MonoBehaviour
 
         if (gameManager != null)
             gameManager.AtualizarVidas(life);
+
+        if (SistemaVidas.Instance != null)
+            SistemaVidas.Instance.GanharVida();
     }
 
     // Ativa o tiro rápido (pegar outro renova o tempo)

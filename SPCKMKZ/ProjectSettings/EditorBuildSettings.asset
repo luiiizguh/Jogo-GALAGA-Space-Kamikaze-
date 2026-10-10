@@ -6,24 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Scenes/Fase_1.unity
-    guid: ff016bca5e5cfd04db19c98241b6fcf7
-  - enabled: 1
     path: "Assets/Scenes/selec\xE3onave.unity"
     guid: be9313e283ff3cd4d90531481692fc2c
   - enabled: 1
+    path: Assets/Scenes/Fase_1.unity
+    guid: ff016bca5e5cfd04db19c98241b6fcf7
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 26ccca552e2bffd4cbc46189c169b23c
-=======
+  - enabled: 1
     path: Assets/Scenes/Dialogo.unity
     guid: 155f1ad895676b94383fdf1ad98c5b04
   - enabled: 1
-    path: Assets/Scenes/PlayerTest.unity
-    guid: a232b21128a66a940bcf6c9c7cc0b50c
->>>>>>> origin/Tales_Branch
-  m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    path: Assets/Scenes/Menu.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  m_configObjects: {}

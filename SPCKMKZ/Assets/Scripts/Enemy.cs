@@ -52,16 +52,13 @@ public class Enemy : MonoBehaviour
     // Quando o inimigo é destruído pelo jogador
     void Morrer()
     {
-        // Impede contar duas vezes
         if (finalizado)
             return;
 
         finalizado = true;
 
-        // Verifica se o GerenciadorFases existe
         if (gerenciadorFases != null)
         {
-            // Adiciona os pontos
             gerenciadorFases.InimigoDerrotado(pontos);
 
             Debug.Log("INIMIGO DERROTADO!");
@@ -74,8 +71,12 @@ public class Enemy : MonoBehaviour
             );
         }
 
+        // DROP: avisa o gerenciador que um inimigo morreu
+        if (GerenciadorDrops.Instance != null)
+            GerenciadorDrops.Instance.RegistrarMorte(transform.position);
+
         Destroy(gameObject);
-    }
+}
 
     // Quando o inimigo passa pela parte de baixo da tela
     void Escapar()
