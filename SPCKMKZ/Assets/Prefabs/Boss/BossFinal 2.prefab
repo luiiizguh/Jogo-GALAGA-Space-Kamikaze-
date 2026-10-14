@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1e655ffb512b0408745a57ae45fcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaInimigos
-  vida: 100
+  vida: 500
   pontos: 500
   gerenciador: {fileID: 0}
 --- !u!1 &1609132944905430831

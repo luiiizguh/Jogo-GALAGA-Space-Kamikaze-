@@ -147,7 +147,8 @@ MonoBehaviour:
   velocidadeDescida: 0.4
   amplitudeZigZag: 1
   velocidadeZigZag: 1
-  margemLateral: 0.5
+  margemLateral: 0.1
+  margemDestruir: 1
   posicaoInicialAleatoria: 1
   faseAleatoria: 1
   prefabTeia: {fileID: 2760578118214018881, guid: 4dcae705c189b9e49bcd2448d78bf2a5, type: 3}
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1e655ffb512b0408745a57ae45fcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaInimigos
-  vida: 2
+  vida: 5
   pontos: 10
   gerenciador: {fileID: 0}
 --- !u!1 &6097478610046434071

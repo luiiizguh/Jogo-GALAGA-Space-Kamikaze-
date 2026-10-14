@@ -173,6 +173,9 @@ MonoBehaviour:
   Intercalate: 0
   sprite: {fileID: 2380826933428899309}
   gameManager: {fileID: 0}
+  vidaMaxima: 8
+  duracaoTiroRapido: 8
+  multiplicadorTiroRapido: 0.5
   audioSource: {fileID: -4188167037725179199}
   somTiro: {fileID: 8300000, guid: e98ae56a10580d0478fce73a75d28818, type: 3}
 --- !u!58 &6664053340856022777
@@ -224,7 +227,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

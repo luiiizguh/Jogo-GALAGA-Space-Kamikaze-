@@ -23,6 +23,8 @@ public class Nave_Script : MonoBehaviour
 
     public bool Intercalate = false;
 
+    public bool fastShip = false;
+
     private int cur_spawn = 0;
 
     private bool vulnerable = true;
@@ -245,7 +247,21 @@ public class Nave_Script : MonoBehaviour
                         spawn.transform.position,
                         spawn.transform.rotation
                     );
+                    if (fastShip)
+                    {
+                        
+                        Instantiate(
+                            shoot_prefab,
+                            spawn.transform.position,
+                            spawn.transform.rotation * Quaternion.Euler(0, 0, 15f)
+                        );
 
+                        Instantiate(
+                            shoot_prefab,
+                            spawn.transform.position,
+                            spawn.transform.rotation * Quaternion.Euler(0, 0, -15f)
+                        );
+                    }
                     Instantiate(
                         spawn_efx,
                         spawn.transform.position,

@@ -663,9 +663,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4765117771239845149, guid: 8374f3cfb0144b6498a3eab00279b558, type: 3}
+      propertyPath: m_Volume
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 1414962704697246228, guid: 8374f3cfb0144b6498a3eab00279b558, type: 3}
       propertyPath: vidaMaxima
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414962704697246228, guid: 8374f3cfb0144b6498a3eab00279b558, type: 3}
+      propertyPath: shoot_cooldown
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589050563235824574, guid: 8374f3cfb0144b6498a3eab00279b558, type: 3}
+      propertyPath: m_Radius
+      value: 0.09129966
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589050563235824574, guid: 8374f3cfb0144b6498a3eab00279b558, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7232511317249797829, guid: 8374f3cfb0144b6498a3eab00279b558, type: 3}
       propertyPath: m_LocalPosition.x
@@ -752,7 +768,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.08
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -871,7 +887,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.10976712
+  m_Radius: 0.09129966
 --- !u!114 &57292300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,7 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Nave_Script
   life: 5
   shoot_damage: 5
-  shoot_cooldown: 0.08
+  shoot_cooldown: 0.1
   velocity: 0.9
   shoot_prefab: {fileID: 6491981245840268139, guid: e3bc6fb9a37f40c499551a7eb4075569, type: 3}
   spawn_tiro:
@@ -894,6 +910,7 @@ MonoBehaviour:
   - {fileID: 417794375}
   spawn_efx: {fileID: 7221585585806007691, guid: 97b48d0b4d629f14887c26d469b6df79, type: 3}
   Intercalate: 1
+  fastShip: 0
   sprite: {fileID: 1859991186}
   gameManager: {fileID: 0}
   vidaMaxima: 5
@@ -2209,8 +2226,8 @@ MonoBehaviour:
     posicaoSpawn: {x: 0, y: 1.4}
   - nome: inimigo
     inimigoPrefab: {fileID: 2491070001725888063, guid: ee145a13b18de054fad78f4b1c60c7fc, type: 3}
-    quantidadeInimigos: 30
-    tempoEntreSpawns: 0.8
+    quantidadeInimigos: 20
+    tempoEntreSpawns: 1
     objetoDaFase: {fileID: 665407835}
     musica: {fileID: 0}
     usarSpawnFixo: 0
@@ -2220,7 +2237,7 @@ MonoBehaviour:
     quantidadeInimigos: 1
     tempoEntreSpawns: 1.5
     objetoDaFase: {fileID: 0}
-    musica: {fileID: 8300000, guid: 02149d37227c31e40811d79b9f96e5fd, type: 3}
+    musica: {fileID: 0}
     usarSpawnFixo: 1
     posicaoSpawn: {x: 0, y: 1}
   faseAtual: 1
@@ -2536,10 +2553,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.06394558
-    y: 0.050561797
-    width: 0.8707483
-    height: 0.8988764
+    x: 0.12616822
+    y: 0
+    width: 0.7476635
+    height: 0.9958507
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2935,6 +2952,26 @@ PrefabInstance:
       propertyPath: vidaMaxima
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6553116215156318612, guid: 61f114c222ab6cf44b7330a805d66894, type: 3}
+      propertyPath: shoot_cooldown
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689972958888302543, guid: 61f114c222ab6cf44b7330a805d66894, type: 3}
+      propertyPath: m_Radius
+      value: 0.07356241
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689972958888302543, guid: 61f114c222ab6cf44b7330a805d66894, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689972958888302543, guid: 61f114c222ab6cf44b7330a805d66894, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.014551431
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854424889503455461, guid: 61f114c222ab6cf44b7330a805d66894, type: 3}
+      propertyPath: m_Volume
+      value: 0.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2973,7 +3010,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.08
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3118,8 +3155,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.09276964
+  m_Offset: {x: 0, y: 0.014551431}
+  m_Radius: 0.07356241
 --- !u!114 &1376661470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3134,7 +3171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Nave_Script
   life: 5
   shoot_damage: 5
-  shoot_cooldown: 0.4
+  shoot_cooldown: 0.3
   velocity: 1
   shoot_prefab: {fileID: 6491981245840268139, guid: c1d4df94b78587f4384d22e7bd43379f, type: 3}
   spawn_tiro:
@@ -3142,6 +3179,7 @@ MonoBehaviour:
   - {fileID: 1085010184}
   spawn_efx: {fileID: 7221585585806007691, guid: 97b48d0b4d629f14887c26d469b6df79, type: 3}
   Intercalate: 1
+  fastShip: 0
   sprite: {fileID: 1476914153}
   gameManager: {fileID: 0}
   vidaMaxima: 5
@@ -3505,6 +3543,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5704736700670305079, guid: c743a26939b0392478a4add16c23ad5a, type: 3}
+      propertyPath: m_Volume
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 468535610874158409, guid: c743a26939b0392478a4add16c23ad5a, type: 3}
       propertyPath: m_Name
       value: NaveNormal
@@ -3512,6 +3554,14 @@ PrefabInstance:
     - target: {fileID: 468535610874158409, guid: c743a26939b0392478a4add16c23ad5a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510797109599612440, guid: c743a26939b0392478a4add16c23ad5a, type: 3}
+      propertyPath: m_Radius
+      value: 0.058779746
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510797109599612440, guid: c743a26939b0392478a4add16c23ad5a, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.032409936
       objectReference: {fileID: 0}
     - target: {fileID: 6579067223932326949, guid: c743a26939b0392478a4add16c23ad5a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3723,6 +3773,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4188167037725179199, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
+      propertyPath: m_Volume
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 6347758890225238252, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
       propertyPath: m_Name
       value: NaveRapida
@@ -3731,9 +3785,33 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6664053340856022777, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
+      propertyPath: m_Radius
+      value: 0.060105138
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664053340856022777, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664053340856022777, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130450340898192668, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
+      propertyPath: fastShip
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130450340898192668, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
+      propertyPath: velocity
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7130450340898192668, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
       propertyPath: vidaMaxima
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130450340898192668, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
+      propertyPath: shoot_cooldown
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8167448737311701034, guid: b81ed3ff03fbb454c97824a6eea7ec2b, type: 3}
       propertyPath: m_LocalPosition.x

@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1e655ffb512b0408745a57ae45fcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaInimigos
-  vida: 3
+  vida: 4
   pontos: 10
   gerenciador: {fileID: 0}
 --- !u!58 &7744525674409262624
@@ -356,7 +356,7 @@ MonoBehaviour:
   centro: {fileID: 0}
   vida: 5
   raio: 0.1
-  velocidadeGraus: 90
+  velocidadeGraus: 250
   sentidoHorario: 1
   girarSobreSiMesmo: 1
   tagProjetil: Tiro
