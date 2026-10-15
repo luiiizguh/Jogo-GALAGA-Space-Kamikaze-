@@ -204,3 +204,7 @@ MonoBehaviour:
   tipo: 0
   velocidadeQueda: 1
   limiteY: -6
+  prefab_efeito: {fileID: 8887171151941332701, guid: b4292a4b13ff9c947a16b9851b75b6ce, type: 3}
+  somVida: {fileID: 8300000, guid: f52706c4d1d5cac4b8705503e79dd5eb, type: 3}
+  somHabilidade: {fileID: 0}
+  camadasVolume: 1

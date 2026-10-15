@@ -233,3 +233,4 @@ MonoBehaviour:
   vida: 1
   pontos: 10
   gerenciador: {fileID: 0}
+  prefab_morte: {fileID: 9140019955898843481, guid: ca4907596c4493d48ad2187d3435ad80, type: 3}

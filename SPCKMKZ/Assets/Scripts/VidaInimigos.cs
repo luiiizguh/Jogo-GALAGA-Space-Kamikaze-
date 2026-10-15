@@ -5,6 +5,8 @@ public class VidaInimigos : MonoBehaviour
     public float vida = 3;
     public int pontos = 10;
     public GerenciadorFases gerenciador; 
+
+    public GameObject prefab_morte;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +34,7 @@ public class VidaInimigos : MonoBehaviour
         if (gerenciador != null)
         gerenciador.InimigoDerrotado(pontos);
 
+        GameObject efeito = Instantiate(prefab_morte, transform.position, Quaternion.identity);
         // Conta a morte e, de vez em quando, solta vida ou habilidade
         if (GerenciadorDrops.Instance != null)
             GerenciadorDrops.Instance.RegistrarMorte(transform.position);

@@ -168,9 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1e655ffb512b0408745a57ae45fcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VidaInimigos
-  vida: 5
+  vida: 8
   pontos: 10
   gerenciador: {fileID: 0}
+  prefab_morte: {fileID: 9140019955898843481, guid: ca4907596c4493d48ad2187d3435ad80, type: 3}
 --- !u!1 &6097478610046434071
 GameObject:
   m_ObjectHideFlags: 0

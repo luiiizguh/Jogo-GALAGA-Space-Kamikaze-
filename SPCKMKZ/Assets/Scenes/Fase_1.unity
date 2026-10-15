@@ -1031,6 +1031,7 @@ MonoBehaviour:
   vida: 1
   pontos: 10
   gerenciador: {fileID: 1085703935}
+  prefab_morte: {fileID: 0}
 --- !u!1 &273997578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2064,7 @@ Transform:
   m_GameObject: {fileID: 672216870}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.19, y: -1.71, z: -0.1}
+  m_LocalPosition: {x: 1.19, y: -1.71, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2210,7 +2211,7 @@ MonoBehaviour:
   fases:
   - nome: Inimigo escudo
     inimigoPrefab: {fileID: 2071358471842240051, guid: 7304667470a1a0f4381761faaf187bb9, type: 3}
-    quantidadeInimigos: 15
+    quantidadeInimigos: 25
     tempoEntreSpawns: 1.3
     objetoDaFase: {fileID: 1830903365}
     musica: {fileID: 0}
@@ -2218,7 +2219,7 @@ MonoBehaviour:
     posicaoSpawn: {x: 0, y: 1.4}
   - nome: inimigo
     inimigoPrefab: {fileID: 8612245046610079549, guid: d9799648634a85e49900450e9e4599b5, type: 3}
-    quantidadeInimigos: 25
+    quantidadeInimigos: 40
     tempoEntreSpawns: 0.5
     objetoDaFase: {fileID: 1329986604}
     musica: {fileID: 0}
@@ -2226,8 +2227,8 @@ MonoBehaviour:
     posicaoSpawn: {x: 0, y: 1.4}
   - nome: inimigo
     inimigoPrefab: {fileID: 2491070001725888063, guid: ee145a13b18de054fad78f4b1c60c7fc, type: 3}
-    quantidadeInimigos: 20
-    tempoEntreSpawns: 1
+    quantidadeInimigos: 25
+    tempoEntreSpawns: 1.3
     objetoDaFase: {fileID: 665407835}
     musica: {fileID: 0}
     usarSpawnFixo: 0
@@ -2535,8 +2536,8 @@ Camera:
   m_GameObject: {fileID: 1163480222}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2553,10 +2554,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.12616822
-    y: 0
-    width: 0.7476635
-    height: 0.9958507
+    x: 0.21592921
+    y: 0.122641504
+    width: 0.5663717
+    height: 0.75471693
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -3890,7 +3891,7 @@ Transform:
   m_GameObject: {fileID: 1673826115}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.58, y: -0.19, z: 0}
+  m_LocalPosition: {x: -1.58, y: -0.19, z: 0.5}
   m_LocalScale: {x: 0.7719225, y: 0.7719225, z: 0.7719225}
   m_ConstrainProportionsScale: 0
   m_Children: []

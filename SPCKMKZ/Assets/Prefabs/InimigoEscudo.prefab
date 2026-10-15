@@ -225,6 +225,7 @@ MonoBehaviour:
   vida: 4
   pontos: 10
   gerenciador: {fileID: 0}
+  prefab_morte: {fileID: 9140019955898843481, guid: ca4907596c4493d48ad2187d3435ad80, type: 3}
 --- !u!58 &7744525674409262624
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -402,6 +403,7 @@ MonoBehaviour:
   vida: 500
   pontos: 10
   gerenciador: {fileID: 0}
+  prefab_morte: {fileID: 0}
 --- !u!70 &6674398778432199865
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
